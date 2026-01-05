@@ -2,8 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>What If? Space</title>
+  <title>What If? – Space</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Extra card styling if not in style.css */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: #f0f0f0;
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 12px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0;
+      color: #555;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
 
@@ -18,27 +68,27 @@
   <div class="cards">
 
     <div class="card">
-      <h3>☀ What if the Sun disappeared?</h3>
-      <p>
-        Earth would drift into space, temperatures would fall rapidly,
-        and life would collapse within weeks.
-      </p>
+      <img src="images/sun.jpg" alt="Sun">
+      <h3>What if the Sun disappeared?</h3>
+      <p>Earth would drift into space, temperatures would fall rapidly, and life would collapse.</p>
     </div>
 
     <div class="card">
-      <h3>🕳 What if black holes exist?</h3>
-      <p>
-        Black holes bend spacetime so extremely that even light cannot escape,
-        revealing limits of physics.
-      </p>
+      <img src="images/blackhole.jpeg" alt="Black Hole">
+      <h3>What if black holes exist?</h3>
+      <p>Black holes bend spacetime so extremely that even light cannot escape.</p>
     </div>
 
     <div class="card">
-      <h3>⚪ What if white holes exist?</h3>
-      <p>
-        White holes are theoretical opposites of black holes,
-        where matter can exit but never enter.
-      </p>
+      <img src="images/white_holes.jpg" alt="White Holes">
+      <h3>What if white holes exist?</h3>
+      <p>White holes are theoretical opposites of black holes, where matter can exit but never enter.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/sandclock.jpeg" alt="Time">
+      <h3>What if time moved backward?</h3>
+      <p>Cause and effect would reverse, challenging our understanding of reality.</p>
     </div>
 
   </div>
@@ -49,4 +99,4 @@
 </footer>
 
 </body>
-  </html>
+</html>
