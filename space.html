@@ -1,134 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>What If? – Space</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>What If? – Space</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+  background: linear-gradient(180deg, #050814, #0b132b);
+  color: #ffffff;
+}
+
+header, footer {
+  background-color: #03051a;
+}
+
+.container {
+  padding: 30px 20px;
+}
+
+/* ---------- Featured Question ---------- */
+.featured {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  background: #ffffff;
+  color: #111;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+}
+
+.featured h2 {
+  margin-bottom: 10px;
+}
+
+.featured p {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #0b132b;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #1b2a4e;
+}
+
+/* ---------- Cards ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.flip-card {
+  width: 280px;
+  height: 320px;
+  perspective: 1000px;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.front {
+  background: linear-gradient(135deg, #1b2a4e, #0b132b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.front p {
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.back {
+  background: #ffffff;
+  color: #111;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+.back h4 {
+  margin-bottom: 5px;
+  color: #0b132b;
+}
+
+.badge {
+  font-size: 0.75rem;
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  padding-top: 6px;
+  text-align: center;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .flip-card { width: 90%; }
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <h1>What If? – Space</h1>
   <nav>
     <a href="index.html">Home</a>
+    <a href="physics.html">Physics</a>
+    <a href="chemistry.html">Chemistry</a>
+    <a href="biology.html">Biology</a>
   </nav>
 </header>
 
 <div class="container">
-  <div class="cards">
 
-    <!-- WITH IMAGES -->
-    <div class="card">
-      <img src="images/sun.jpg" alt="Sun">
-      <h3>What if the Sun disappeared?</h3>
-      <p>Earth would freeze within weeks, oceans would solidify, and life would collapse rapidly.</p>
-    </div>
+<!-- FEATURED QUESTION -->
+<div class="featured">
+  <h2 id="fq-title"></h2>
+  <p id="fq-know"></p>
+  <p id="fq-unknown"></p>
+  <button onclick="randomQuestion()">🔁 Show another question</button>
+  <p style="font-size:0.75rem;margin-top:10px;">
+    Changes automatically every minute
+  </p>
+</div>
 
-    <div class="card">
-      <img src="images/blackhole.jpeg" alt="Blackhole">
-      <h3>What if humans could travel through a black hole?</h3>
-      <p>It could allow shortcuts through spacetime, but extreme gravity might destroy all matter.</p>
-    </div>
+<!-- FLIP CARDS -->
+<div class="cards" id="cards"></div>
 
-    <div class="card">
-      <img src="images/whiteholes.jpg" alt="Whitehole">
-      <h3>What if white holes are exits of black holes?</h3>
-      <p>Matter could emerge elsewhere in the universe, challenging our understanding of causality.</p>
-    </div>
-
-    <div class="card">
-      <img src="images/sandclock.jpeg" alt="Time">
-      <h3>What if time stopped in space?</h3>
-      <p>Motion, reactions, and even light would freeze, making the universe static.</p>
-    </div>
-
-    <!-- WITHOUT IMAGES -->
-    <div class="card">
-      <h3>What if Earth had two moons?</h3>
-      <p>Tides, climate, and night skies would change dramatically.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if gravity suddenly vanished?</h3>
-      <p>Planets would drift away and stars would lose their structure.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if the speed of light were slower?</h3>
-      <p>Communication and perception of reality would completely change.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if Earth was closer to the Sun?</h3>
-      <p>Temperatures would rise, oceans could evaporate, and life might not exist.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if Earth was farther from the Sun?</h3>
-      <p>The planet could become an ice world.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if stars never died?</h3>
-      <p>The universe would lack heavy elements needed for life.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if galaxies collided?</h3>
-      <p>Stars would rarely crash, but gravitational chaos would reshape space.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if dark matter didn’t exist?</h3>
-      <p>Galaxies might never have formed.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if humans lived on Mars?</h3>
-      <p>We would need artificial ecosystems and protection from radiation.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if asteroids stopped hitting Earth?</h3>
-      <p>Life’s evolutionary path might have been completely different.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if Earth had rings like Saturn?</h3>
-      <p>Climate patterns and night skies would be spectacular.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if the universe stopped expanding?</h3>
-      <p>It could collapse back into a Big Crunch.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if aliens are observing us?</h3>
-      <p>They might avoid contact to study natural evolution.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if wormholes were stable?</h3>
-      <p>Instant interstellar travel could become possible.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if stars could think?</h3>
-      <p>Conscious cosmic entities would redefine intelligence.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if space had air?</h3>
-      <p>Sound would travel, but stars would burn uncontrollably.</p>
-    </div>
-
-  </div>
 </div>
 
 <footer>
-  Keep questioning the universe 🌌
+  Based on current scientific understanding 🌌
 </footer>
 
+<script>
+const questions = [
+{
+q:"What if we could travel through a black hole?",
+k:"Black holes warp spacetime extremely and trap everything past the event horizon.",
+u:"Whether safe travel or exit is physically possible."
+},
+{
+q:"What if the Sun suddenly disappeared?",
+k:"Earth would continue orbiting for about 8 minutes.",
+u:"How long complex life could survive."
+},
+{
+q:"What if white holes exist?",
+k:"They are valid mathematical solutions of Einstein’s equations.",
+u:"Whether they exist in reality."
+},
+{
+q:"What if time flows differently across the universe?",
+k:"Time slows near massive objects and high speeds.",
+u:"How time behaves at cosmic scales."
+},
+{
+q:"What if dark matter interacts with normal matter?",
+k:"Dark matter affects galaxies through gravity.",
+u:"Its true nature and interactions."
+},
+{
+q:"What if the universe stops expanding?",
+k:"Expansion is currently accelerating.",
+u:"What would happen if it reversed."
+},
+{
+q:"What if wormholes are real?",
+k:"They are predicted by relativity equations.",
+u:"Whether they are stable or usable."
+},
+{
+q:"What if gravity is not a fundamental force?",
+k:"Gravity behaves differently from other forces.",
+u:"If it emerges from quantum effects."
+},
+{
+q:"What if the universe has an edge?",
+k:"Space may be finite or infinite.",
+u:"What lies beyond a boundary."
+},
+{
+q:"What if time began before the Big Bang?",
+k:"Time emerged with spacetime.",
+u:"Whether something existed before."
+},
+{
+q:"What if parallel universes exist?",
+k:"Some theories allow multiple universes.",
+u:"Whether they can be detected."
+},
+{
+q:"What if stars suddenly stopped nuclear fusion?",
+k:"Fusion powers stars.",
+u:"How quickly collapse would occur."
+},
+{
+q:"What if space is not empty?",
+k:"Quantum fields exist everywhere.",
+u:"Their deeper structure."
+},
+{
+q:"What if light behaves differently far away?",
+k:"Light speed is constant locally.",
+u:"Whether it varies cosmologically."
+},
+{
+q:"What if black holes evaporate?",
+k:"Hawking radiation predicts evaporation.",
+u:"How information escapes."
+},
+{
+q:"What if time is an illusion?",
+k:"Physics treats time as a dimension.",
+u:"Whether it emerges from entropy."
+},
+{
+q:"What if gravity can be repulsive?",
+k:"Dark energy causes expansion.",
+u:"Its origin and mechanism."
+},
+{
+q:"What if the universe is cyclic?",
+k:"Some models predict cycles.",
+u:"Whether evidence exists."
+},
+{
+q:"What if spacetime is discrete?",
+k:"Quantum gravity suggests granularity.",
+u:"The smallest unit of space-time."
+},
+{
+q:"What if constants of nature change?",
+k:"Constants appear fixed.",
+u:"Whether they vary across universes."
+}
+];
+
+const cardsDiv = document.getElementById("cards");
+questions.forEach(q=>{
+  cardsDiv.innerHTML += `
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="front">
+        <h3>${q.q}</h3>
+        <p>Do you know?</p>
+      </div>
+      <div class="back">
+        <h4>What we know</h4>
+        <p>${q.k}</p>
+        <h4>What we don’t know</h4>
+        <p>${q.u}</p>
+        <div class="badge">Based on current scientific understanding</div>
+      </div>
+    </div>
+  </div>`;
+});
+
+// Featured question rotation
+function showFeatured(index){
+  const q = questions[index];
+  document.getElementById("fq-title").innerText = q.q;
+  document.getElementById("fq-know").innerText = "What we know: " + q.k;
+  document.getElementById("fq-unknown").innerText = "What we don’t know: " + q.u;
+}
+
+function randomQuestion(){
+  showFeatured(Math.floor(Math.random()*questions.length));
+}
+
+// Change every minute
+const minuteIndex = new Date().getMinutes() % questions.length;
+showFeatured(minuteIndex);
+</script>
+
 </body>
-</html>
+                      </html>
