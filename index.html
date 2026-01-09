@@ -1,190 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>What If? – Science, Curiosity & Thought Experiments</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* ---------- Animations ---------- */
-    .fade-in {
-      animation: fadeIn 1.4s ease-in-out forwards;
-    }
-
-    .slide-up {
-      animation: slideUp 1.2s ease-in-out forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* ---------- Hero Section ---------- */
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 1.1rem;
-      color: #444;
-    }
-
-    /* ---------- Section Titles ---------- */
-    .section-title {
-      text-align: center;
-      margin-top: 50px;
-      margin-bottom: 20px;
-      color: #0b132b;
-    }
-
-    /* ---------- Info Boxes ---------- */
-    .info-box {
-      max-width: 900px;
-      margin: 20px auto;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-    }
-
-    .info-box p {
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    /* ---------- Subject Cards ---------- */
-    .subject-card {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 14px;
-      width: 240px;
-      text-align: center;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-      transition: transform 0.3s ease;
-    }
-
-    .subject-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .subject-card a {
-      text-decoration: none;
-      color: #0b132b;
-      font-weight: bold;
-    }
-
-    /* ---------- Contact ---------- */
-    .contact {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .contact a {
-      color: #0b132b;
-      font-weight: bold;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>What If? – Learn, Explore, Discover</title>
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0b0f1a, #1b2431);
+  color: white;
+}
+header {
+  background:#050810;
+  padding:20px;
+  text-align:center;
+}
+nav a {
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  border:1px solid white;
+  padding:6px 16px;
+  border-radius:20px;
+  margin:0 5px;
+}
+nav a:hover {
+  background:white;
+  color:black;
+}
+/* ---------- CONTAINER ---------- */
+.container {
+  max-width:1200px;
+  margin:auto;
+  padding:30px 20px;
+  text-align:center;
+}
+h1 { margin-bottom:10px; }
+p.mission { font-size:1.1rem; color:#ccc; margin-bottom:30px; }
+/* ---------- SUBJECT BUTTONS ---------- */
+.subjects button {
+  padding:14px 24px;
+  margin:10px;
+  font-weight:bold;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background: linear-gradient(135deg,#4b6cb7,#182848);
+  color:white;
+  transition:0.3s;
+}
+.subjects button:hover {
+  transform:scale(1.05);
+  background: linear-gradient(135deg,#182848,#4b6cb7);
+}
+/* ---------- FEATURED ---------- */
+.featured {
+  background:white;
+  color:black;
+  border-radius:18px;
+  padding:25px;
+  margin:40px auto;
+  max-width:900px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.4);
+  transition:0.5s;
+}
+.featured h2 { margin-bottom:10px; }
+.featured p { font-size:0.95rem; }
+button.featured-btn {
+  margin-top:10px;
+  padding:10px 18px;
+  border-radius:20px;
+  border:none;
+  background:#182848;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+button.featured-btn:hover {
+  background:#4b6cb7;
+}
+/* ---------- SEARCH ---------- */
+#search-bar {
+  width:90%;
+  max-width:400px;
+  padding:10px 14px;
+  border-radius:20px;
+  border:none;
+  margin-bottom:20px;
+  outline:none;
+  font-size:1rem;
+}
+#search-results {
+  margin-top:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+/* ---------- SEARCH CARD ---------- */
+.search-card {
+  background:#182848;
+  padding:15px;
+  border-radius:16px;
+  width:250px;
+  transition:0.3s;
+}
+.search-card:hover { transform:scale(1.05); }
+/* ---------- FOOTER ---------- */
+footer {
+  background:#050810;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+  font-size:0.8rem;
+  color:#aaa;
+}
+</style>
 </head>
-
 <body>
 
 <header>
   <h1>What If?</h1>
+  <p class="mission">Explore science, ask questions, and think deeper about our universe.</p>
   <nav>
-    <a href="physics.html">Physics</a>
-    <a href="chemistry.html">Chemistry</a>
-    <a href="biology.html">Biology</a>
-    <a href="space.html">Space</a>
+    <a href="index.html">Home</a>
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero fade-in">
-  <h1>Exploring Science Through “What If?”</h1>
-  <p>
-    This website is a collection of scientific thought experiments.
-    We explore questions that challenge curiosity, deepen understanding,
-    and connect imagination with real science.
-  </p>
-</section>
+<div class="container">
 
-<!-- MISSION -->
-<h2 class="section-title slide-up">Our Mission</h2>
-<div class="info-box slide-up">
-  <p>
-    <strong>What If?</strong> exists to encourage scientific thinking.
-    Not to predict the future, not to claim authority — but to ask meaningful questions
-    grounded in current scientific understanding.
-  </p>
-  <p>
-    Every question explores how the universe, life, and matter behave —
-    based on what science knows today.
+<!-- SUBJECT BUTTONS -->
+<div class="subjects">
+  <button onclick="window.location.href='space.html'">🌌 Space</button>
+  <button onclick="window.location.href='physics.html'">⚛️ Physics</button>
+  <button onclick="window.location.href='chemistry.html'">⚗️ Chemistry</button>
+  <button onclick="window.location.href='biology.html'">🧬 Biology</button>
+</div>
+
+<!-- SEARCH -->
+<input type="text" id="search-bar" placeholder="Search all questions...">
+<div id="search-results"></div>
+
+<!-- FEATURED RANDOM QUESTION -->
+<div class="featured">
+  <h2 id="fq-title"></h2>
+  <p id="fq-know"></p>
+  <p id="fq-unknown"></p>
+  <button class="featured-btn" onclick="randomQuestion()">🔁 Show another question</button>
+  <p style="font-size:0.75rem;margin-top:10px;">
+    Changes automatically every minute
   </p>
 </div>
 
-<!-- SUBJECTS -->
-<h2 class="section-title slide-up">Explore Subjects</h2>
-<div class="cards slide-up">
-  <div class="subject-card"><a href="space.html">🌌 Space</a></div>
-  <div class="subject-card"><a href="physics.html">⚛️ Physics</a></div>
-  <div class="subject-card"><a href="chemistry.html">⚗️ Chemistry</a></div>
-  <div class="subject-card"><a href="biology.html">🧬 Biology</a></div>
+<!-- HELP US IMPROVE -->
+<div style="margin-top:40px;">
+  <button onclick="window.open('https://forms.gle/sZ75azfTaiuoJrrBA','_blank')">💡 Help Us Improve</button>
 </div>
 
-<!-- WHY DIFFERENT -->
-<h2 class="section-title slide-up">What Makes This Different?</h2>
-<div class="info-box slide-up">
-  <p>✔ Questions are explained using real science</p>
-  <p>✔ Clear distinction between known facts and unknown possibilities</p>
-  <p>✔ Designed for students, learners, and curious minds</p>
-  <p>✔ No fake claims, no clickbait</p>
-  <p>✔ Based on current scientific understanding</p>
-</div>
-
-<!-- HONESTY -->
-<h2 class="section-title slide-up">Scientific Honesty</h2>
-<div class="info-box slide-up">
-  <p>
-    Science evolves. Some answers may change as new discoveries are made.
-    This website respects uncertainty and encourages critical thinking.
-  </p>
-  <p>
-    <strong>Last updated:</strong> 2026  
-    <br>
-    <strong>Approach:</strong> Based on current scientific understanding
-  </p>
-</div>
-
-<!-- CONTACT -->
-<div class="contact slide-up">
-  <h2>Collaborations & Contact</h2>
-  <p>
-    Interested in collaboration, feedback, or educational discussion?
-  </p>
-  <p>
-    📧 <a href="mailto:learn.studyandresearch@gmail.com">
-    learn.studyandresearch@gmail.com</a>
-  </p>
 </div>
 
 <footer>
-  Curiosity is the beginning of science 🔍
+  Contact: learn.educationandresearch@gmail.com <br>
+  Reviewed through scientific reasoning. &copy; 2026
 </footer>
 
+<script>
+// ----- ALL QUESTIONS COMBINED -----
+const allQuestions = [
+  {subject:"Space", q:"What if the Sun disappeared?", k:"We understand gravitational effects.", u:"Exact long-term cosmic impact is unknown."},
+  {subject:"Space", q:"What if black holes existed?", k:"Black holes form from collapsed stars.", u:"Whether we could travel through one safely."},
+  {subject:"Physics", q:"What if time could stop?", k:"Physics predicts time dilation.", u:"Whether time can truly halt."},
+  {subject:"Physics", q:"What if light had mass?", k:"Light behaves as massless particles.", u:"How gravity would change."},
+  {subject:"Chemistry", q:"What if atoms were visible to the naked eye?", k:"Atoms form all matter.", u:"How daily life would change."},
+  {subject:"Chemistry", q:"What if chemical bonds stopped forming?", k:"Bonds hold molecules together.", u:"Whether matter could exist."},
+  {subject:"Biology", q:"What if humans stopped aging?", k:"Aging is driven by cellular damage.", u:"Whether aging can be fully halted."},
+  {subject:"Biology", q:"What if cells could repair all DNA damage?", k:"Cells repair DNA imperfectly.", u:"Limits of perfect repair."}
+];
+
+// Duplicate to reach all 20 per subject (for demo, you can replace with full 20 later)
+// You can add the rest of your 20 questions in this array.
+
+function searchQuestions(){
+  const query = document.getElementById("search-bar").value.toLowerCase();
+  const resultsDiv = document.getElementById("search-results");
+  resultsDiv.innerHTML = "";
+  const results = allQuestions.filter(q=>{
+    return q.q.toLowerCase().includes(query) || 
+           q.k.toLowerCase().includes(query) || 
+           q.u.toLowerCase().includes(query);
+  });
+  if(results.length === 0){
+    resultsDiv.innerHTML = "<p>No results found.</p>";
+    return;
+  }
+  results.forEach(q=>{
+    resultsDiv.innerHTML += `<div class="search-card"><strong>${q.q}</strong><br>${q.k}<br>${q.u}<br><em>${q.subject}</em></div>`;
+  });
+}
+
+document.getElementById("search-bar").addEventListener("input", searchQuestions);
+
+// Featured random question logic
+function showFeatured(i){
+  document.getElementById("fq-title").innerText = allQuestions[i].q;
+  document.getElementById("fq-know").innerText = "What we know: " + allQuestions[i].k;
+  document.getElementById("fq-unknown").innerText = "What we don’t know: " + allQuestions[i].u;
+}
+
+function randomQuestion(){
+  showFeatured(Math.floor(Math.random()*allQuestions.length));
+}
+
+const minuteIndex = new Date().getMinutes() % allQuestions.length;
+showFeatured(minuteIndex);
+</script>
+
 </body>
-</html>
+  </html>
