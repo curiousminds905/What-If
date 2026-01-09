@@ -54,32 +54,17 @@ p.mission { font-size:1.1rem; color:#ccc; margin-bottom:30px; }
   transform:scale(1.05);
   background: linear-gradient(135deg,#182848,#4b6cb7);
 }
-/* ---------- FEATURED ---------- */
-.featured {
-  background:white;
-  color:black;
+/* ---------- ABOUT / MISSION ---------- */
+.about {
+  background: rgba(255,255,255,0.05);
   border-radius:18px;
-  padding:25px;
+  padding:30px;
   margin:40px auto;
   max-width:900px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.4);
-  transition:0.5s;
+  text-align:left;
 }
-.featured h2 { margin-bottom:10px; }
-.featured p { font-size:0.95rem; }
-button.featured-btn {
-  margin-top:10px;
-  padding:10px 18px;
-  border-radius:20px;
-  border:none;
-  background:#182848;
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
-}
-button.featured-btn:hover {
-  background:#4b6cb7;
-}
+.about h2 { margin-bottom:15px; color:#4b6cb7; }
+.about p { line-height:1.6; color:#ccc; }
 /* ---------- SEARCH ---------- */
 #search-bar {
   width:90%;
@@ -87,7 +72,7 @@ button.featured-btn:hover {
   padding:10px 14px;
   border-radius:20px;
   border:none;
-  margin-bottom:20px;
+  margin:20px 0;
   outline:none;
   font-size:1rem;
 }
@@ -107,6 +92,19 @@ button.featured-btn:hover {
   transition:0.3s;
 }
 .search-card:hover { transform:scale(1.05); }
+/* ---------- HELP US IMPROVE BUTTON ---------- */
+.help-btn {
+  margin-top:40px;
+  padding:14px 28px;
+  font-weight:bold;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background: linear-gradient(135deg,#4b6cb7,#182848);
+  color:white;
+  transition:0.3s;
+}
+.help-btn:hover { background: linear-gradient(135deg,#182848,#4b6cb7); transform:scale(1.05); }
 /* ---------- FOOTER ---------- */
 footer {
   background:#050810;
@@ -138,31 +136,34 @@ footer {
   <button onclick="window.location.href='biology.html'">🧬 Biology</button>
 </div>
 
+<!-- ABOUT / MISSION -->
+<div class="about">
+  <h2>About “What If?”</h2>
+  <p>
+    “What If?” is an educational platform designed to make science curiosity-driven, interactive, and fun. 
+    Explore questions in Space, Physics, Chemistry, and Biology, and learn what is known and what remains unknown. 
+    Our goal is to inspire thinking, learning, and scientific exploration for everyone.
+  </p>
+  <p>
+    Reviewed through scientific reasoning. We aim to provide accurate, engaging, and thoughtful scientific content. 
+    This platform encourages curiosity, critical thinking, and the joy of discovery.
+  </p>
+</div>
+
 <!-- SEARCH -->
 <input type="text" id="search-bar" placeholder="Search all questions...">
 <div id="search-results"></div>
 
-<!-- FEATURED RANDOM QUESTION -->
-<div class="featured">
-  <h2 id="fq-title"></h2>
-  <p id="fq-know"></p>
-  <p id="fq-unknown"></p>
-  <button class="featured-btn" onclick="randomQuestion()">🔁 Show another question</button>
-  <p style="font-size:0.75rem;margin-top:10px;">
-    Changes automatically every minute
-  </p>
-</div>
-
 <!-- HELP US IMPROVE -->
-<div style="margin-top:40px;">
-  <button onclick="window.open('https://forms.gle/sZ75azfTaiuoJrrBA','_blank')">💡 Help Us Improve</button>
+<div>
+  <button class="help-btn" onclick="window.open('https://forms.gle/sZ75azfTaiuoJrrBA','_blank')">💡 Help Us Improve</button>
 </div>
 
 </div>
 
 <footer>
   Contact: learn.educationandresearch@gmail.com <br>
-  Reviewed through scientific reasoning. &copy; 2026
+  &copy; 2026 “What If?”
 </footer>
 
 <script>
@@ -178,9 +179,7 @@ const allQuestions = [
   {subject:"Biology", q:"What if cells could repair all DNA damage?", k:"Cells repair DNA imperfectly.", u:"Limits of perfect repair."}
 ];
 
-// Duplicate to reach all 20 per subject (for demo, you can replace with full 20 later)
-// You can add the rest of your 20 questions in this array.
-
+// Duplicate to reach all 20 per subject (for demo, replace with full list)
 function searchQuestions(){
   const query = document.getElementById("search-bar").value.toLowerCase();
   const resultsDiv = document.getElementById("search-results");
@@ -198,23 +197,8 @@ function searchQuestions(){
     resultsDiv.innerHTML += `<div class="search-card"><strong>${q.q}</strong><br>${q.k}<br>${q.u}<br><em>${q.subject}</em></div>`;
   });
 }
-
 document.getElementById("search-bar").addEventListener("input", searchQuestions);
-
-// Featured random question logic
-function showFeatured(i){
-  document.getElementById("fq-title").innerText = allQuestions[i].q;
-  document.getElementById("fq-know").innerText = "What we know: " + allQuestions[i].k;
-  document.getElementById("fq-unknown").innerText = "What we don’t know: " + allQuestions[i].u;
-}
-
-function randomQuestion(){
-  showFeatured(Math.floor(Math.random()*allQuestions.length));
-}
-
-const minuteIndex = new Date().getMinutes() % allQuestions.length;
-showFeatured(minuteIndex);
 </script>
 
 </body>
-  </html>
+</html>
