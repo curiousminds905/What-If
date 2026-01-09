@@ -2,47 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>What If? Science Scenarios</title>
+  <title>What If? – Science, Curiosity & Thought Experiments</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ---------- Animations ---------- */
+    .fade-in {
+      animation: fadeIn 1.4s ease-in-out forwards;
+    }
+
+    .slide-up {
+      animation: slideUp 1.2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    /* ---------- Section Titles ---------- */
+    .section-title {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      color: #0b132b;
+    }
+
+    /* ---------- Info Boxes ---------- */
+    .info-box {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .info-box p {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    /* ---------- Subject Cards ---------- */
+    .subject-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 14px;
+      width: 240px;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .subject-card a {
+      text-decoration: none;
+      color: #0b132b;
+      font-weight: bold;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact a {
+      color: #0b132b;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-  <h1>What If? Science Scenarios</h1>
-  <p>Explore mind-bending questions across science</p>
+  <h1>What If?</h1>
   <nav>
-    <a href="space.html" target="_blank">Space</a>
-    <a href="physics.html" target="_blank">Physics</a>
-    <a href="chemistry.html" target="_blank">Chemistry</a>
-    <a href="biology.html" target="_blank">Biology</a>
+    <a href="physics.html">Physics</a>
+    <a href="chemistry.html">Chemistry</a>
+    <a href="biology.html">Biology</a>
+    <a href="space.html">Space</a>
   </nav>
 </header>
 
-<div class="container">
-  <div class="cards">
-    <div class="card">
-      <h3>🌌 Space</h3>
-      <p>What if the Sun disappeared? What if black holes and white holes exist?</p>
-    </div>
-    <div class="card">
-      <h3>⚛ Physics</h3>
-      <p>What if gravity stopped? What if time moved backward?</p>
-    </div>
-    <div class="card">
-      <h3>🧪 Chemistry</h3>
-      <p>What if water wasn’t polar? What if reactions never stopped?</p>
-    </div>
-    <div class="card">
-      <h3>🧬 Biology</h3>
-      <p>What if humans never slept? What if aging could stop?</p>
-    </div>
-  </div>
+<!-- HERO -->
+<section class="hero fade-in">
+  <h1>Exploring Science Through “What If?”</h1>
+  <p>
+    This website is a collection of scientific thought experiments.
+    We explore questions that challenge curiosity, deepen understanding,
+    and connect imagination with real science.
+  </p>
+</section>
+
+<!-- MISSION -->
+<h2 class="section-title slide-up">Our Mission</h2>
+<div class="info-box slide-up">
+  <p>
+    <strong>What If?</strong> exists to encourage scientific thinking.
+    Not to predict the future, not to claim authority — but to ask meaningful questions
+    grounded in current scientific understanding.
+  </p>
+  <p>
+    Every question explores how the universe, life, and matter behave —
+    based on what science knows today.
+  </p>
+</div>
+
+<!-- SUBJECTS -->
+<h2 class="section-title slide-up">Explore Subjects</h2>
+<div class="cards slide-up">
+  <div class="subject-card"><a href="space.html">🌌 Space</a></div>
+  <div class="subject-card"><a href="physics.html">⚛️ Physics</a></div>
+  <div class="subject-card"><a href="chemistry.html">⚗️ Chemistry</a></div>
+  <div class="subject-card"><a href="biology.html">🧬 Biology</a></div>
+</div>
+
+<!-- WHY DIFFERENT -->
+<h2 class="section-title slide-up">What Makes This Different?</h2>
+<div class="info-box slide-up">
+  <p>✔ Questions are explained using real science</p>
+  <p>✔ Clear distinction between known facts and unknown possibilities</p>
+  <p>✔ Designed for students, learners, and curious minds</p>
+  <p>✔ No fake claims, no clickbait</p>
+  <p>✔ Based on current scientific understanding</p>
+</div>
+
+<!-- HONESTY -->
+<h2 class="section-title slide-up">Scientific Honesty</h2>
+<div class="info-box slide-up">
+  <p>
+    Science evolves. Some answers may change as new discoveries are made.
+    This website respects uncertainty and encourages critical thinking.
+  </p>
+  <p>
+    <strong>Last updated:</strong> 2026  
+    <br>
+    <strong>Approach:</strong> Based on current scientific understanding
+  </p>
+</div>
+
+<!-- CONTACT -->
+<div class="contact slide-up">
+  <h2>Collaborations & Contact</h2>
+  <p>
+    Interested in collaboration, feedback, or educational discussion?
+  </p>
+  <p>
+    📧 <a href="mailto:learn.studyandresearch@gmail.com">
+    learn.studyandresearch@gmail.com</a>
+  </p>
 </div>
 
 <footer>
-  © 2026 What If? Science | Curiosity Never Ends
- || For collaboration contact us at learn.educationandstudy@gmail.com
+  Curiosity is the beginning of science 🔍
 </footer>
 
 </body>
-                                                                </html>
+  </html>
