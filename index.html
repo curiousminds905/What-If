@@ -1,190 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>What If? – Science, Curiosity & Thought Experiments</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>What If? – Space</title>
+<link rel="stylesheet" href="style.css">
 
-  <style>
-    /* ---------- Animations ---------- */
-    .fade-in {
-      animation: fadeIn 1.4s ease-in-out forwards;
-    }
+<style>
+body {
+  background: linear-gradient(180deg, #050814, #0b132b);
+  color: #ffffff;
+}
 
-    .slide-up {
-      animation: slideUp 1.2s ease-in-out forwards;
-    }
+header, footer {
+  background-color: #03051a;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+.container {
+  padding: 30px 20px;
+}
 
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+/* ---------- Featured Question ---------- */
+.featured {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  background: #ffffff;
+  color: #111;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+}
 
-    /* ---------- Hero Section ---------- */
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-    }
+.featured h2 {
+  margin-bottom: 10px;
+}
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
+.featured p {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
 
-    .hero p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 1.1rem;
-      color: #444;
-    }
+button {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #0b132b;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-    /* ---------- Section Titles ---------- */
-    .section-title {
-      text-align: center;
-      margin-top: 50px;
-      margin-bottom: 20px;
-      color: #0b132b;
-    }
+button:hover {
+  background: #1b2a4e;
+}
 
-    /* ---------- Info Boxes ---------- */
-    .info-box {
-      max-width: 900px;
-      margin: 20px auto;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-    }
+/* ---------- Cards ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
 
-    .info-box p {
-      margin-bottom: 10px;
-      color: #333;
-    }
+.flip-card {
+  width: 280px;
+  height: 320px;
+  perspective: 1000px;
+}
 
-    /* ---------- Subject Cards ---------- */
-    .subject-card {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 14px;
-      width: 240px;
-      text-align: center;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-      transition: transform 0.3s ease;
-    }
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 
-    .subject-card:hover {
-      transform: translateY(-8px);
-    }
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
 
-    .subject-card a {
-      text-decoration: none;
-      color: #0b132b;
-      font-weight: bold;
-    }
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
 
-    /* ---------- Contact ---------- */
-    .contact {
-      text-align: center;
-      margin-top: 40px;
-    }
+.front {
+  background: linear-gradient(135deg, #1b2a4e, #0b132b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
 
-    .contact a {
-      color: #0b132b;
-      font-weight: bold;
-      text-decoration: none;
-    }
-  </style>
+.front p {
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.back {
+  background: #ffffff;
+  color: #111;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+.back h4 {
+  margin-bottom: 5px;
+  color: #0b132b;
+}
+
+.badge {
+  font-size: 0.75rem;
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  padding-top: 6px;
+  text-align: center;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .flip-card { width: 90%; }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>What If?</h1>
+  <h1>What If? – Space</h1>
   <nav>
-    <a href="physics.html">Physics</a>
-    <a href="chemistry.html">Chemistry</a>
-    <a href="biology.html">Biology</a>
-    <a href="space.html">Space</a>
+    <a href="index.html">Home</a>
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero fade-in">
-  <h1>Exploring Science Through “What If?”</h1>
-  <p>
-    This website is a collection of scientific thought experiments.
-    We explore questions that challenge curiosity, deepen understanding,
-    and connect imagination with real science.
-  </p>
-</section>
+<div class="container">
 
-<!-- MISSION -->
-<h2 class="section-title slide-up">Our Mission</h2>
-<div class="info-box slide-up">
-  <p>
-    <strong>What If?</strong> exists to encourage scientific thinking.
-    Not to predict the future, not to claim authority — but to ask meaningful questions
-    grounded in current scientific understanding.
-  </p>
-  <p>
-    Every question explores how the universe, life, and matter behave —
-    based on what science knows today.
+<!-- FEATURED QUESTION -->
+<div class="featured">
+  <h2 id="fq-title"></h2>
+  <p id="fq-know"></p>
+  <p id="fq-unknown"></p>
+  <button onclick="randomQuestion()">🔁 Show another question</button>
+  <p style="font-size:0.75rem;margin-top:10px;">
+    Changes automatically every minute
   </p>
 </div>
 
-<!-- SUBJECTS -->
-<h2 class="section-title slide-up">Explore Subjects</h2>
-<div class="cards slide-up">
-  <div class="subject-card"><a href="space.html">🌌 Space</a></div>
-  <div class="subject-card"><a href="physics.html">⚛️ Physics</a></div>
-  <div class="subject-card"><a href="chemistry.html">⚗️ Chemistry</a></div>
-  <div class="subject-card"><a href="biology.html">🧬 Biology</a></div>
-</div>
+<!-- FLIP CARDS -->
+<div class="cards" id="cards"></div>
 
-<!-- WHY DIFFERENT -->
-<h2 class="section-title slide-up">What Makes This Different?</h2>
-<div class="info-box slide-up">
-  <p>✔ Questions are explained using real science</p>
-  <p>✔ Clear distinction between known facts and unknown possibilities</p>
-  <p>✔ Designed for students, learners, and curious minds</p>
-  <p>✔ No fake claims, no clickbait</p>
-  <p>✔ Based on current scientific understanding</p>
-</div>
-
-<!-- HONESTY -->
-<h2 class="section-title slide-up">Scientific Honesty</h2>
-<div class="info-box slide-up">
-  <p>
-    Science evolves. Some answers may change as new discoveries are made.
-    This website respects uncertainty and encourages critical thinking.
-  </p>
-  <p>
-    <strong>Last updated:</strong> 2026  
-    <br>
-    <strong>Approach:</strong> Based on current scientific understanding
-  </p>
-</div>
-
-<!-- CONTACT -->
-<div class="contact slide-up">
-  <h2>Collaborations & Contact</h2>
-  <p>
-    Interested in collaboration, feedback, or educational discussion?
-  </p>
-  <p>
-    📧 <a href="mailto:learn.studyandresearch@gmail.com">
-    learn.studyandresearch@gmail.com</a>
-  </p>
 </div>
 
 <footer>
-  Curiosity is the beginning of science 🔍
+  Based on current scientific understanding 🌌
 </footer>
 
+<script>
+const questions = [
+{
+q:"What if we could travel through a black hole?",
+k:"Black holes warp spacetime extremely and trap everything past the event horizon.",
+u:"Whether safe travel or exit is physically possible."
+},
+{
+q:"What if the Sun suddenly disappeared?",
+k:"Earth would continue orbiting for about 8 minutes.",
+u:"How long complex life could survive."
+},
+{
+q:"What if white holes exist?",
+k:"They are valid mathematical solutions of Einstein’s equations.",
+u:"Whether they exist in reality."
+},
+{
+q:"What if time flows differently across the universe?",
+k:"Time slows near massive objects and high speeds.",
+u:"How time behaves at cosmic scales."
+},
+{
+q:"What if dark matter interacts with normal matter?",
+k:"Dark matter affects galaxies through gravity.",
+u:"Its true nature and interactions."
+},
+{
+q:"What if the universe stops expanding?",
+k:"Expansion is currently accelerating.",
+u:"What would happen if it reversed."
+},
+{
+q:"What if wormholes are real?",
+k:"They are predicted by relativity equations.",
+u:"Whether they are stable or usable."
+},
+{
+q:"What if gravity is not a fundamental force?",
+k:"Gravity behaves differently from other forces.",
+u:"If it emerges from quantum effects."
+},
+{
+q:"What if the universe has an edge?",
+k:"Space may be finite or infinite.",
+u:"What lies beyond a boundary."
+},
+{
+q:"What if time began before the Big Bang?",
+k:"Time emerged with spacetime.",
+u:"Whether something existed before."
+},
+{
+q:"What if parallel universes exist?",
+k:"Some theories allow multiple universes.",
+u:"Whether they can be detected."
+},
+{
+q:"What if stars suddenly stopped nuclear fusion?",
+k:"Fusion powers stars.",
+u:"How quickly collapse would occur."
+},
+{
+q:"What if space is not empty?",
+k:"Quantum fields exist everywhere.",
+u:"Their deeper structure."
+},
+{
+q:"What if light behaves differently far away?",
+k:"Light speed is constant locally.",
+u:"Whether it varies cosmologically."
+},
+{
+q:"What if black holes evaporate?",
+k:"Hawking radiation predicts evaporation.",
+u:"How information escapes."
+},
+{
+q:"What if time is an illusion?",
+k:"Physics treats time as a dimension.",
+u:"Whether it emerges from entropy."
+},
+{
+q:"What if gravity can be repulsive?",
+k:"Dark energy causes expansion.",
+u:"Its origin and mechanism."
+},
+{
+q:"What if the universe is cyclic?",
+k:"Some models predict cycles.",
+u:"Whether evidence exists."
+},
+{
+q:"What if spacetime is discrete?",
+k:"Quantum gravity suggests granularity.",
+u:"The smallest unit of space-time."
+},
+{
+q:"What if constants of nature change?",
+k:"Constants appear fixed.",
+u:"Whether they vary across universes."
+}
+];
+
+const cardsDiv = document.getElementById("cards");
+questions.forEach(q=>{
+  cardsDiv.innerHTML += `
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="front">
+        <h3>${q.q}</h3>
+        <p>Do you know?</p>
+      </div>
+      <div class="back">
+        <h4>What we know</h4>
+        <p>${q.k}</p>
+        <h4>What we don’t know</h4>
+        <p>${q.u}</p>
+        <div class="badge">Based on current scientific understanding</div>
+      </div>
+    </div>
+  </div>`;
+});
+
+// Featured question rotation
+function showFeatured(index){
+  const q = questions[index];
+  document.getElementById("fq-title").innerText = q.q;
+  document.getElementById("fq-know").innerText = "What we know: " + q.k;
+  document.getElementById("fq-unknown").innerText = "What we don’t know: " + q.u;
+}
+
+function randomQuestion(){
+  showFeatured(Math.floor(Math.random()*questions.length));
+}
+
+// Change every minute
+const minuteIndex = new Date().getMinutes() % questions.length;
+showFeatured(minuteIndex);
+</script>
+
 </body>
-  </html>
+</html>
