@@ -1,129 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>What If? – Physics</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>What If? – Physics</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0a0214, #1a0638);
+  color: white;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background: #05010d;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+nav a:hover {
+  background: white;
+  color: black;
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+  padding: 30px 20px;
+}
+
+/* ---------- FEATURED QUESTION ---------- */
+.featured {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  color: black;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.featured h2 {
+  margin-bottom: 10px;
+}
+
+.featured p {
+  font-size: 0.95rem;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #1a0638;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #2e0b66;
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.flip-card {
+  width: 280px;
+  height: 320px;
+  perspective: 1000px;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.front {
+  background: linear-gradient(135deg, #3a0ca3, #240046);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.front p {
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.back {
+  background: white;
+  color: black;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+.back h4 {
+  margin-bottom: 6px;
+  color: #240046;
+}
+
+.badge {
+  margin-top: 10px;
+  padding-top: 6px;
+  border-top: 1px solid #ccc;
+  font-size: 0.75rem;
+  color: #555;
+  text-align: center;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #05010d;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .flip-card { width: 90%; }
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <h1>What If? – Physics</h1>
   <nav>
     <a href="index.html">Home</a>
-    <a href="space.html">Space</a>
   </nav>
 </header>
 
 <div class="container">
-  <div class="cards">
 
-    <div class="card">
-      <h3>What if gravity suddenly disappeared?</h3>
-      <p>Everything would float away, planets would lose orbit, and the universe would collapse into chaos.</p>
-    </div>
+<!-- FEATURED QUESTION -->
+<div class="featured">
+  <h2 id="fq-title"></h2>
+  <p id="fq-know"></p>
+  <p id="fq-unknown"></p>
+  <button onclick="randomQuestion()">🔁 Show another question</button>
+  <p style="font-size:0.75rem;margin-top:10px;">
+    Changes automatically every minute
+  </p>
+</div>
 
-    <div class="card">
-      <h3>What if time flowed backward?</h3>
-      <p>Cause and effect would reverse, making reality impossible to understand.</p>
-    </div>
+<!-- FLIP CARDS -->
+<div class="cards" id="cards"></div>
 
-    <div class="card">
-      <h3>What if the speed of light was infinite?</h3>
-      <p>There would be no delay in seeing events, and relativity would not exist.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if the speed of light was slower?</h3>
-      <p>Everyday life would involve visible delays in communication and motion.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if friction did not exist?</h3>
-      <p>Nothing could stop moving, and walking would be impossible.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if energy was not conserved?</h3>
-      <p>Physics laws would break, and perpetual motion machines could exist.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if mass could be negative?</h3>
-      <p>Objects would accelerate in opposite directions to applied forces.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if electrons had no charge?</h3>
-      <p>Atoms would not form, and matter as we know it would not exist.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if quantum effects were visible to humans?</h3>
-      <p>Objects could exist in multiple places at the same time.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if entropy decreased naturally?</h3>
-      <p>Disorder would turn into order, violating the second law of thermodynamics.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if absolute zero was easily reachable?</h3>
-      <p>All atomic motion would stop, changing material properties completely.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if sound could travel in vacuum?</h3>
-      <p>Space would no longer be silent, changing astronomy forever.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if inertia didn’t exist?</h3>
-      <p>Objects would instantly stop when forces were removed.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if magnetic monopoles existed?</h3>
-      <p>Electric and magnetic theories would be rewritten.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if space was only two-dimensional?</h3>
-      <p>Complex life and stable structures could not form.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if time moved at the same rate everywhere?</h3>
-      <p>Relativity would not exist, simplifying the universe.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if photons had mass?</h3>
-      <p>Light would slow down and gravity would affect it differently.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if forces suddenly changed strength?</h3>
-      <p>Atoms could collapse or explode instantly.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if parallel universes interact?</h3>
-      <p>Energy and matter could leak between realities.</p>
-    </div>
-
-    <div class="card">
-      <h3>What if physical constants were variable?</h3>
-      <p>The laws of nature would change with time and place.</p>
-    </div>
-
-  </div>
 </div>
 
 <footer>
-  Keep questioning reality ⚛️
+  Based on current scientific understanding ⚛️
 </footer>
+
+<script>
+const questions = [
+{q:"What if time could stop?",k:"Physics allows time dilation at high speeds.",u:"Whether time can completely halt."},
+{q:"What if light had mass?",k:"Light behaves as massless particles.",u:"How gravity would change."},
+{q:"What if absolute zero is reached?",k:"Atoms reach minimum motion.",u:"Whether motion can fully stop."},
+{q:"What if energy is not conserved?",k:"Energy conservation holds universally.",u:"Conditions where it may fail."},
+{q:"What if gravity suddenly vanished?",k:"Objects would move in straight lines.",u:"Impact on atomic structures."},
+{q:"What if friction didn’t exist?",k:"Motion would never naturally stop.",u:"How life would adapt."},
+{q:"What if time moved backward?",k:"Equations allow reversibility.",u:"Why entropy prevents it."},
+{q:"What if quantum uncertainty vanished?",k:"Uncertainty is fundamental.",u:"A deterministic quantum world."},
+{q:"What if faster-than-light travel exists?",k:"Relativity forbids it locally.",u:"Exotic spacetime shortcuts."},
+{q:"What if dimensions beyond 3 exist?",k:"Theories predict extra dimensions.",u:"How to detect them."},
+{q:"What if vacuum isn’t empty?",k:"Quantum fields fluctuate.",u:"True vacuum nature."},
+{q:"What if inertia disappeared?",k:"Objects resist motion change.",u:"Motion without inertia."},
+{q:"What if time is quantized?",k:"Planck time suggests limits.",u:"Discrete time behavior."},
+{q:"What if mass is emergent?",k:"Higgs field gives mass.",u:"Deeper origin of mass."},
+{q:"What if constants vary?",k:"Constants appear fixed.",u:"Their cosmic variability."},
+{q:"What if causality breaks?",k:"Cause precedes effect.",u:"Physics without order."},
+{q:"What if energy had weight?",k:"Energy contributes to gravity.",u:"Observable effects."},
+{q:"What if space is elastic?",k:"Spacetime curves.",u:"Its mechanical limits."},
+{q:"What if force is illusion?",k:"Forces arise from fields.",u:"A unified explanation."},
+{q:"What if laws change over time?",k:"Laws seem stable.",u:"Evolution of laws."}
+];
+
+const cardsDiv = document.getElementById("cards");
+
+questions.forEach(q=>{
+  cardsDiv.innerHTML += `
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="front">
+        <h3>${q.q}</h3>
+        <p>Think deeper</p>
+      </div>
+      <div class="back">
+        <h4>What we know</h4>
+        <p>${q.k}</p>
+        <h4>What we don’t know</h4>
+        <p>${q.u}</p>
+        <div class="badge">Reviewed through scientific reasoning</div>
+      </div>
+    </div>
+  </div>`;
+});
+
+// Featured question logic
+function showFeatured(i){
+  document.getElementById("fq-title").innerText = questions[i].q;
+  document.getElementById("fq-know").innerText = "What we know: " + questions[i].k;
+  document.getElementById("fq-unknown").innerText = "What we don’t know: " + questions[i].u;
+}
+
+function randomQuestion(){
+  showFeatured(Math.floor(Math.random()*questions.length));
+}
+
+const minuteIndex = new Date().getMinutes() % questions.length;
+showFeatured(minuteIndex);
+</script>
 
 </body>
   </html>
