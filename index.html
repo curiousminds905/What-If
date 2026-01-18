@@ -1,204 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>What If? – Learn, Explore, Discover</title>
-<style>
-/* ---------- GLOBAL ---------- */
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #0b0f1a, #1b2431);
-  color: white;
-}
-header {
-  background:#050810;
-  padding:20px;
-  text-align:center;
-}
-nav a {
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  border:1px solid white;
-  padding:6px 16px;
-  border-radius:20px;
-  margin:0 5px;
-}
-nav a:hover {
-  background:white;
-  color:black;
-}
-/* ---------- CONTAINER ---------- */
-.container {
-  max-width:1200px;
-  margin:auto;
-  padding:30px 20px;
-  text-align:center;
-}
-h1 { margin-bottom:10px; }
-p.mission { font-size:1.1rem; color:#ccc; margin-bottom:30px; }
-/* ---------- SUBJECT BUTTONS ---------- */
-.subjects button {
-  padding:14px 24px;
-  margin:10px;
-  font-weight:bold;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-  background: linear-gradient(135deg,#4b6cb7,#182848);
-  color:white;
-  transition:0.3s;
-}
-.subjects button:hover {
-  transform:scale(1.05);
-  background: linear-gradient(135deg,#182848,#4b6cb7);
-}
-/* ---------- ABOUT / MISSION ---------- */
-.about {
-  background: rgba(255,255,255,0.05);
-  border-radius:18px;
-  padding:30px;
-  margin:40px auto;
-  max-width:900px;
-  text-align:left;
-}
-.about h2 { margin-bottom:15px; color:#4b6cb7; }
-.about p { line-height:1.6; color:#ccc; }
-/* ---------- SEARCH ---------- */
-#search-bar {
-  width:90%;
-  max-width:400px;
-  padding:10px 14px;
-  border-radius:20px;
-  border:none;
-  margin:20px 0;
-  outline:none;
-  font-size:1rem;
-}
-#search-results {
-  margin-top:20px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
-}
-/* ---------- SEARCH CARD ---------- */
-.search-card {
-  background:#182848;
-  padding:15px;
-  border-radius:16px;
-  width:250px;
-  transition:0.3s;
-}
-.search-card:hover { transform:scale(1.05); }
-/* ---------- HELP US IMPROVE BUTTON ---------- */
-.help-btn {
-  margin-top:40px;
-  padding:14px 28px;
-  font-weight:bold;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-  background: linear-gradient(135deg,#4b6cb7,#182848);
-  color:white;
-  transition:0.3s;
-}
-.help-btn:hover { background: linear-gradient(135deg,#182848,#4b6cb7); transform:scale(1.05); }
-/* ---------- FOOTER ---------- */
-footer {
-  background:#050810;
-  text-align:center;
-  padding:15px;
-  margin-top:40px;
-  font-size:0.8rem;
-  color:#aaa;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What If – Curious Minds</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<header>
-  <h1>What If?</h1>
-  <p class="mission">Explore science, ask questions, and think deeper about our universe.</p>
-  <nav>
-    <a href="index.html">Home</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <h1><span class="highlight">What If</span> – Curious Minds</h1>
+    <p>Exploring science through curiosity, logic, and imagination.</p>
+  </header>
 
-<div class="container">
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-<!-- SUBJECT BUTTONS -->
-<div class="subjects">
-  <button onclick="window.location.href='space.html'">🌌 Space</button>
-  <button onclick="window.location.href='physics.html'">⚛️ Physics</button>
-  <button onclick="window.location.href='chemistry.html'">⚗️ Chemistry</button>
-  <button onclick="window.location.href='biology.html'">🧬 Biology</button>
-</div>
+    <!-- WHY STAY HERE -->
+    <section class="section-card">
+      <h2>Why should you stay here?</h2>
+      <p>
+        This platform explores <strong>deep scientific “what if” questions</strong> —
+        not with clickbait, but with real science.
+        We separate what we <em>know</em> from what we <em>don’t know</em>,
+        helping you think like a scientist, not just read like a viewer.
+      </p>
+      <p>
+        Whether you are a student, educator, or curious mind,
+        this is a place to <strong>question the universe intelligently</strong>.
+      </p>
+    </section>
 
-<!-- ABOUT / MISSION -->
-<div class="about">
-  <h2>About “What If?”</h2>
-  <p>
-    “What If?” is an educational platform designed to make science curiosity-driven, interactive, and fun. 
-    Explore questions in Space, Physics, Chemistry, and Biology, and learn what is known and what remains unknown. 
-    Our goal is to inspire thinking, learning, and scientific exploration for everyone.
-  </p>
-  <p>
-    Reviewed through scientific reasoning. We aim to provide accurate, engaging, and thoughtful scientific content. 
-    This platform encourages curiosity, critical thinking, and the joy of discovery.
-  </p>
-</div>
+    <!-- SEARCH -->
+    <section class="section-card">
+      <h2>Search a What If</h2>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search topics like Sun, Black Holes, Time..."
+        style="width:100%; padding:12px; border-radius:8px; border:none;"
+        onkeyup="searchQuestions()"
+      />
+    </section>
 
-<!-- SEARCH -->
-<input type="text" id="search-bar" placeholder="Search all questions...">
-<div id="search-results"></div>
+    <!-- RANDOM QUESTION -->
+    <section class="section-card">
+      <h2>Feeling Curious?</h2>
+      <button onclick="showRandomQuestion()">Give me a random What If</button>
+      <p id="randomQuestion" style="margin-top:15px; font-size:1.1em;"></p>
+    </section>
 
-<!-- HELP US IMPROVE -->
-<div>
-  <button class="help-btn" onclick="window.open('https://forms.gle/sZ75azfTaiuoJrrBA','_blank')">💡 Help Us Improve</button>
-</div>
+    <!-- TOPICS -->
+    <section class="section-card">
+      <h2>Explore Topics</h2>
+      <ul id="questionList">
+        <li><a href="space.html">🌌 What if the Sun disappeared?</a></li>
+        <li><a href="space.html">🌌 What if black holes were gateways?</a></li>
+        <li><a href="physics.html">⚛️ What if gravity suddenly weakened?</a></li>
+        <li><a href="physics.html">⚛️ What if time flowed differently?</a></li>
+        <li><a href="chemistry.html">🧪 What if water behaved differently?</a></li>
+        <li><a href="chemistry.html">🧪 What if reactions never stopped?</a></li>
+        <li><a href="biology.html">🧬 What if humans stopped aging?</a></li>
+        <li><a href="biology.html">🧬 What if DNA could be edited naturally?</a></li>
+      </ul>
+    </section>
 
-</div>
+    <!-- ABOUT -->
+    <section class="section-card">
+      <h2>About This Project</h2>
+      <p>
+        <strong>What If – Curious Minds</strong> is an independent educational initiative.
+        Content is based on established scientific understanding,
+        reviewed against credible sources, and presented responsibly.
+      </p>
+      <p>
+        📩 For collaborations or feedback:
+        <br />
+        <strong>learn.educationandresearch@gmail.com</strong>
+      </p>
+    </section>
 
-<footer>
-  Contact: learn.educationandresearch@gmail.com <br>
-  &copy; 2026 “What If?”
-</footer>
+  </main>
 
-<script>
-// ----- ALL QUESTIONS COMBINED -----
-const allQuestions = [
-  {subject:"Space", q:"What if the Sun disappeared?", k:"We understand gravitational effects.", u:"Exact long-term cosmic impact is unknown."},
-  {subject:"Space", q:"What if black holes existed?", k:"Black holes form from collapsed stars.", u:"Whether we could travel through one safely."},
-  {subject:"Physics", q:"What if time could stop?", k:"Physics predicts time dilation.", u:"Whether time can truly halt."},
-  {subject:"Physics", q:"What if light had mass?", k:"Light behaves as massless particles.", u:"How gravity would change."},
-  {subject:"Chemistry", q:"What if atoms were visible to the naked eye?", k:"Atoms form all matter.", u:"How daily life would change."},
-  {subject:"Chemistry", q:"What if chemical bonds stopped forming?", k:"Bonds hold molecules together.", u:"Whether matter could exist."},
-  {subject:"Biology", q:"What if humans stopped aging?", k:"Aging is driven by cellular damage.", u:"Whether aging can be fully halted."},
-  {subject:"Biology", q:"What if cells could repair all DNA damage?", k:"Cells repair DNA imperfectly.", u:"Limits of perfect repair."}
-];
+  <!-- FOOTER -->
+  <footer style="text-align:center; padding:20px; opacity:0.7;">
+    <p>© 2026 What If – Curious Minds | Science through curiosity</p>
+  </footer>
 
-// Duplicate to reach all 20 per subject (for demo, replace with full list)
-function searchQuestions(){
-  const query = document.getElementById("search-bar").value.toLowerCase();
-  const resultsDiv = document.getElementById("search-results");
-  resultsDiv.innerHTML = "";
-  const results = allQuestions.filter(q=>{
-    return q.q.toLowerCase().includes(query) || 
-           q.k.toLowerCase().includes(query) || 
-           q.u.toLowerCase().includes(query);
-  });
-  if(results.length === 0){
-    resultsDiv.innerHTML = "<p>No results found.</p>";
-    return;
-  }
-  results.forEach(q=>{
-    resultsDiv.innerHTML += `<div class="search-card"><strong>${q.q}</strong><br>${q.k}<br>${q.u}<br><em>${q.subject}</em></div>`;
-  });
-}
-document.getElementById("search-bar").addEventListener("input", searchQuestions);
-</script>
+  <!-- SCRIPT -->
+  <script>
+    const questions = [
+      "What if the Sun disappeared?",
+      "What if black holes were gateways?",
+      "What if time flowed differently?",
+      "What if gravity weakened?",
+      "What if humans stopped aging?",
+      "What if Earth had no seasons?",
+      "What if light had mass?",
+      "What if DNA could repair itself perfectly?"
+    ];
+
+    function showRandomQuestion() {
+      const random =
+        questions[Math.floor(Math.random() * questions.length)];
+      document.getElementById("randomQuestion").innerText = random;
+    }
+
+    function searchQuestions() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const items = document.querySelectorAll("#questionList li");
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(input) ? "" : "none";
+      });
+    }
+  </script>
 
 </body>
-</html>
+      </html>
