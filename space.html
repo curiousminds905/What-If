@@ -17,7 +17,7 @@
       --accent-2: #b388ff;
       --glass: rgba(255,255,255,0.02);
       --card-radius: 16px;
-      --max-width: 1200px;
+      --max-width: 1280px;
       color-scheme: dark;
     }
 
@@ -48,282 +48,103 @@
       height:100%;
     }
 
-    /* Decorative floating cosmic layers */
-    .cosmic-layer {
-      position:fixed;
-      inset:0;
-      z-index:1;
-      pointer-events:none;
-      mix-blend-mode:screen;
-      opacity:0.18;
-      filter: blur(36px) saturate(130%);
-    }
+    .cosmic-layer { position:fixed; inset:0; z-index:1; pointer-events:none; mix-blend-mode:screen; opacity:0.16; filter: blur(36px) saturate(120%); }
 
-    /* orbiting planet decorations */
-    .planet {
-      position:fixed;
-      z-index:2;
-      pointer-events:none;
-      transform-origin:center center;
-      will-change:transform;
-    }
+    .planet { position:fixed; z-index:2; pointer-events:none; transform-origin:center center; will-change:transform; }
 
-    /* black hole pulse */
-    .blackhole {
-      position:fixed;
-      right:8%;
-      bottom:8%;
-      width:140px;
-      height:140px;
-      border-radius:50%;
-      z-index:2;
-      pointer-events:none;
-      display:grid;
-      place-items:center;
-      mix-blend-mode:screen;
-    }
-    .blackhole::before{
-      content:"";
-      width:100%;
-      height:100%;
-      border-radius:50%;
-      background:conic-gradient(from 0deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02), rgba(255,255,255,0.06));
-      filter: blur(8px);
-      animation: swirl 8s linear infinite;
-      transform: scale(1.0);
-    }
-    .blackhole::after{
-      content:"";
-      width:48%;
-      height:48%;
-      border-radius:50%;
-      background: radial-gradient(circle at 35% 35%, rgba(0,0,0,0.95), rgba(0,0,0,0.98) 60%);
-      box-shadow: 0 0 28px 8px rgba(10,10,20,0.6) inset;
-      transform: translateZ(0);
-      animation: pulse 3.4s ease-in-out infinite;
-    }
-
-    @keyframes swirl{
-      from{ transform: rotate(0deg) }
-      to{ transform: rotate(360deg) }
-    }
-    @keyframes pulse{
-      0%{ transform: scale(0.98) }
-      50%{ transform: scale(1.06) }
-      100%{ transform: scale(0.98) }
-    }
+    .blackhole { position:fixed; right:8%; bottom:8%; width:160px; height:160px; border-radius:50%; z-index:2; pointer-events:none; display:grid; place-items:center; mix-blend-mode:screen; }
+    .blackhole::before{ content:""; width:100%; height:100%; border-radius:50%; background:conic-gradient(from 0deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02), rgba(255,255,255,0.06)); filter: blur(8px); animation: swirl 8s linear infinite; transform: scale(1.0); }
+    .blackhole::after{ content:""; width:42%; height:42%; border-radius:50%; background: radial-gradient(circle at 35% 35%, rgba(0,0,0,0.95), rgba(0,0,0,0.98) 60%); box-shadow: 0 0 28px 8px rgba(10,10,20,0.6) inset; transform: translateZ(0); animation: pulse 3.4s ease-in-out infinite; }
+    @keyframes swirl{ from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
+    @keyframes pulse{ 0%{ transform: scale(0.98) } 50%{ transform: scale(1.06) } 100%{ transform: scale(0.98) } }
 
     /* Site container */
-    .site {
-      position:relative;
-      z-index:3;
-      max-width:var(--max-width);
-      margin:40px auto;
-      padding:28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:22px;
-      box-shadow: 0 18px 60px rgba(2,6,23,0.7);
-      backdrop-filter: blur(6px) saturate(120%);
-    }
+    .site { position:relative; z-index:3; max-width:var(--max-width); margin:40px auto; padding:32px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:22px; box-shadow: 0 18px 60px rgba(2,6,23,0.7); backdrop-filter: blur(6px) saturate(120%); }
 
-    header {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-    .brand {
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .logo {
-      width:64px;height:64px;border-radius:12px;
-      display:grid;place-items:center;
-      font-weight:700;font-family:"Space Grotesk",sans-serif;
-      font-size:1.2rem;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#021025;
-      box-shadow: 0 10px 30px rgba(18,18,26,0.6);
-    }
+    header { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .brand { display:flex; gap:14px; align-items:center; }
+    .logo { width:64px;height:64px;border-radius:12px; display:grid;place-items:center; font-weight:700;font-family:"Space Grotesk",sans-serif; font-size:1.2rem; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#021025; box-shadow: 0 10px 30px rgba(18,18,26,0.6); }
     h1{ margin:0; font-size:1.3rem; line-height:1.05 }
-    h1 .sub { display:block; font-size:0.85rem; color:var(--muted); margin-top:6px; font-weight:500;}
+    h1 .sub { display:block; font-size:0.85rem; color:var(--muted); margin-top:6px; font-weight:500; }
 
-    /* controls row */
-    .controls {
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-top:6px;
-      flex-wrap:wrap;
-    }
-    .topic-btn{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.04);
-      color:var(--accent);
-      padding:8px 12px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      transition: transform .14s ease, box-shadow .12s ease;
-    }
+    .controls { display:flex; gap:12px; align-items:center; margin-top:6px; flex-wrap:wrap; }
+    .topic-btn{ background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--accent); padding:8px 12px; border-radius:10px; text-decoration:none; font-weight:600; display:inline-flex; gap:8px; align-items:center; transition: transform .14s ease, box-shadow .12s ease; }
     .topic-btn:hover{ transform:translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.6) }
 
-    main {
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:18px;
-    }
+    main { margin-top:22px; display:grid; grid-template-columns: 1fr; gap:18px; }
 
     /* Featured display */
-    .featured {
-      display:flex;
-      gap:18px;
-      align-items:center;
-      justify-content:space-between;
-      padding:18px;
-      border-radius:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.02);
-    }
-    .featured .text {
-      max-width:76%;
-    }
+    .featured { display:flex; gap:18px; align-items:center; justify-content:space-between; padding:18px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.02); }
+    .featured .text { max-width:72%; }
     .featured h2{ margin:0 0 6px 0; font-size:1.05rem }
     .featured p { margin:6px 0; color:var(--muted) }
     .featured .actions { display:flex; gap:10px; align-items:center; }
 
-    .btn {
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:#021025;
-      border:none;
-      padding:10px 14px;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:700;
-      box-shadow: 0 6px 20px rgba(12,12,20,0.6);
-    }
-    .btn.secondary {
-      background:transparent;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,0.03);
-    }
+    .btn { background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#021025; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; box-shadow: 0 6px 20px rgba(12,12,20,0.6); }
+    .btn.secondary { background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03); }
 
-    /* Cards grid */
-    .cards {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:20px;
-      align-items:start;
-    }
+    /* Cards grid - make cards bigger by increasing min width */
+    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap:28px; align-items:start; }
 
-    /* flip card */
-    .flip-card {
-      perspective: 1200px;
-      transform-style: preserve-3d;
-      position:relative;
-      min-height:320px;
-    }
-    .flip-inner {
-      position:relative;
-      width:100%;
-      height:100%;
-      transform-style: preserve-3d;
-      transition: transform 700ms cubic-bezier(.2,.9,.3,1);
-      will-change: transform;
-      border-radius:var(--card-radius);
-      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-    }
+    /* flip card - increase min-height to accommodate more info */
+    .flip-card { perspective: 1400px; transform-style: preserve-3d; position:relative; min-height:520px; }
+    .flip-inner { position:relative; width:100%; height:100%; transform-style: preserve-3d; transition: transform 700ms cubic-bezier(.2,.9,.3,1); will-change: transform; border-radius:var(--card-radius); box-shadow: 0 10px 30px rgba(2,6,23,0.6); overflow:visible; }
     .flip-card:hover .flip-inner { transform: translateY(-6px) rotateX(0deg) }
     .flip-card.is-flipped .flip-inner { transform: rotateY(180deg) translateZ(0) }
 
-    .card-face {
-      position:absolute;
-      inset:0;
-      backface-visibility:hidden;
-      border-radius:var(--card-radius);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      padding:18px;
-    }
-
-    .card-front {
-      background: linear-gradient(135deg, rgba(17,24,39,0.85), rgba(6,10,20,0.65));
-      border: 1px solid rgba(255,255,255,0.03);
-      color: #dceffb;
-      justify-content:center;
-      gap:10px;
-    }
-    .card-front h3 { margin:0; font-size:1.05rem; }
+    .card-face { position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--card-radius); overflow:hidden; display:flex; flex-direction:column; padding:22px; }
+    .card-front { background: linear-gradient(135deg, rgba(17,24,39,0.92), rgba(6,10,20,0.78)); border: 1px solid rgba(255,255,255,0.03); color: #dceffb; justify-content:flex-start; gap:12px; }
+    .card-front h3 { margin:0; font-size:1.15rem; line-height:1.22; }
     .card-front p { margin:0; color:var(--muted); font-style:italic; }
 
-    .card-back {
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
-      color:#0b132b;
-      transform: rotateY(180deg);
-      border: 1px solid rgba(0,0,0,0.06);
-      overflow:auto;
-    }
-    .card-back h4 { margin:6px 0; color:#071026 }
-    .card-back p { margin:6px 0; color:#223b54; line-height:1.35 }
+    .card-back { background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96)); color:#0b132b; transform: rotateY(180deg); border: 1px solid rgba(0,0,0,0.06); overflow:auto; padding-right:20px; }
+    .card-back .back-inner { display:flex; flex-direction:column; gap:12px; min-height:100%; }
+    .card-back h4 { margin:6px 0; color:#071026; font-size:1.02rem; }
+    .card-back p { margin:6px 0; color:#223b54; line-height:1.45; white-space:normal; font-size:0.98rem; }
+    .badge { margin-top:auto; text-align:center; padding-top:12px; font-size:0.86rem; color:var(--muted); border-top:1px dashed rgba(0,0,0,0.06); padding-bottom:6px; }
 
-    .badge {
-      margin-top:auto;
-      text-align:center;
-      padding-top:10px;
-      font-size:0.8rem;
-      color:var(--muted);
-      border-top:1px dashed rgba(0,0,0,0.06);
-    }
+    /* ensure card content is fully readable on back by allowing comfortable padding */
+    .card-back::-webkit-scrollbar { height:8px; width:8px; }
+    .card-back::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.08); border-radius:6px; }
 
     /* focus styles for accessibility */
-    .flip-card:focus-within .flip-inner,
-    .flip-card:focus .flip-inner { box-shadow: 0 12px 40px rgba(12,12,20,0.7); transform: translateY(-8px); }
+    .flip-card:focus-within .flip-inner, .flip-card:focus .flip-inner { box-shadow: 0 12px 40px rgba(12,12,20,0.7); transform: translateY(-8px); }
 
-    /* small animation on load */
+    /* fade-in */
     .fade-in { opacity:0; transform: translateY(8px) scale(.995); animation: fadeInUp .6s forwards; }
     @keyframes fadeInUp { to { opacity:1; transform:none } }
 
-    /* responsive tweaks */
+    @media (max-width:1100px){
+      .cards { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap:20px; }
+      .flip-card { min-height:480px; }
+    }
     @media (max-width:720px){
       header{ gap:12px }
       .featured .text { max-width:100% }
       .logo{ width:52px;height:52px }
+      .cards { grid-template-columns: 1fr; gap:18px; }
+      .flip-card { min-height:520px; }
     }
 
-    @media (prefers-reduced-motion: reduce){
-      * { animation: none !important; transition: none !important; }
-    }
+    @media (prefers-reduced-motion: reduce){ * { animation:none !important; transition:none !important; } }
 
-    /* utility */
     .muted { color:var(--muted) }
   </style>
 </head>
 <body>
 
-  <!-- Stars are drawn to a canvas -->
   <canvas id="starfield" aria-hidden="true"></canvas>
 
-  <!-- faint galaxy layer (pure CSS radial gradients) -->
   <div class="cosmic-layer" aria-hidden="true" style="background:
     radial-gradient(600px 300px at 75% 20%, rgba(179,129,255,0.06), transparent 8%),
     radial-gradient(500px 220px at 20% 80%, rgba(110,231,249,0.045), transparent 9%);">
   </div>
 
-  <!-- orbiting planet decorations -->
-  <div class="planet" style="right:8%; top:12%; width:120px; height:120px; transform-origin: center;">
-    <svg viewBox="0 0 120 120" width="120" height="120" style="filter:drop-shadow(0 8px 20px rgba(0,0,0,0.55));">
-      <defs>
-        <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ffd08a"/><stop offset="1" stop-color="#ff7ab6"/></linearGradient>
-      </defs>
-      <circle cx="60" cy="60" r="36" fill="url(#g1)"></circle>
-      <g fill="rgba(255,255,255,0.06)"><ellipse cx="60" cy="90" rx="46" ry="10"></ellipse></g>
+  <div class="planet" style="right:8%; top:14%; width:140px; height:140px;">
+    <svg viewBox="0 0 120 120" width="140" height="140" style="filter:drop-shadow(0 8px 30px rgba(0,0,0,0.6));">
+      <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ffd08a"/><stop offset="1" stop-color="#ff7ab6"/></linearGradient></defs>
+      <circle cx="60" cy="60" r="40" fill="url(#g1)"></circle>
+      <g fill="rgba(255,255,255,0.06)"><ellipse cx="60" cy="100" rx="60" ry="12"></ellipse></g>
     </svg>
   </div>
 
@@ -376,26 +197,33 @@
     </footer>
   </div>
 
-  <!-- Interactive behaviour -->
   <script>
     (function () {
-      // Questions: concise "q", "k" known, "u" unknown details
+      // 20 questions - each includes full details to display
       const questions = [
-        { q: "What if we could travel through a black hole?", k: "Black holes warp spacetime and trap anything past the event horizon.", u: "Whether safe travel or an exit is physically possible is unknown." },
-        { q: "What if the Sun suddenly disappeared?", k: "Light and gravity reach us in ~8 minutes; Earth would lose sunlight then.", u: "Timescale for ecosystems to collapse depends on many factors." },
-        { q: "What if white holes exist?", k: "They appear as mathematical solutions to Einstein's equations.", u: "No observational evidence yet that they exist in nature." },
-        { q: "What if time flows differently across the universe?", k: "General relativity predicts time dilation near mass and high speeds.", u: "How large-scale time differences manifest cosmologically remains subtle." },
-        { q: "What if dark matter interacts with normal matter?", k: "Dark matter interacts gravitationally, shaping galaxies.", u: "Its particle nature and non-gravitational interactions are unknown." },
-        { q: "What if wormholes are real?", k: "Wormholes are theoretical tunnels in spacetime.", u: "Stability and traversability require exotic conditions." },
-        { q: "What if stars suddenly stopped nuclear fusion?", k: "Fusion provides pressure; without it stars collapse and cool.", u: "Collapse times vary with star mass and composition." },
-        { q: "What if the universe is cyclic?", k: "Some models propose repeating expansions and contractions.", u: "Observational support is limited and debated." },
-        { q: "What if spacetime is discrete?", k: "Quantum gravity approaches suggest granularity.", u: "The observable signatures of discreteness are unknown." },
-        { q: "What if constants of nature change?", k: "Constants appear fixed locally today.", u: "Small spatial/temporal variations are actively searched for." },
-        { q: "What if parallel universes exist?", k: "Some theories permit many universes.", u: "Detecting them may be impossible in practice." },
-        { q: "What if we had two moons?", k: "Two moons would change tides and night illumination.", u: "Long-term orbital stability depends on masses and distances." }
+        { q: "What if we could travel through a black hole?", k: "Black holes warp spacetime and trap anything past the event horizon. Their gravity is extreme and classical physics breaks down at singularities.", u: "Whether safe travel or an exit is physically possible is unknown. Quantum gravity may change the picture; wormhole-like structures require exotic matter." },
+        { q: "What if the Sun suddenly disappeared?", k: "Light and gravitational influence take about 8 minutes to reach us. Earth would continue in a straight line tangent to its orbit after gravity change.", u: "Complex ecosystems would collapse on timescales from days to months; atmospheric cooling and oceanic responses are complex." },
+        { q: "What if white holes exist?", k: "White holes arise as time-reversed black hole solutions in general relativity and would expel matter.", u: "No observational evidence exists; thermodynamic and stability issues make them speculative." },
+        { q: "What if time flows differently across the universe?", k: "General relativity predicts time dilation near massive objects and at high velocities; clocks differ by gravitational potential.", u: "Large-scale, cosmological non-uniformities in the rate of time and how observers compare them remain conceptually subtle." },
+        { q: "What if dark matter interacts with normal matter?", k: "Dark matter's presence is inferred via gravity; it shapes galaxy rotation curves and large-scale structure.", u: "Non-gravitational interactions (weak force, scattering) are actively searched for; confirmation would revolutionize particle physics." },
+        { q: "What if wormholes are real?", k: "Wormholes are theoretical tunnels connecting distant regions of spacetime permitted by Einstein's equations.", u: "Traversability requires conditions such as negative energy density; stability and quantum effects are unresolved." },
+        { q: "What if stars suddenly stopped nuclear fusion?", k: "Fusion provides outward pressure balancing gravity; without it, stars collapse and cool, leading to compact remnants depending on mass.", u: "Timescales and exact collapse behavior depend strongly on stellar mass and composition; life effects vary accordingly." },
+        { q: "What if the universe is cyclic?", k: "Some cosmological models propose repeated expansions and contractions (bounces).", u: "Evidence for cyclical behavior is limited; entropy and observational signatures make this hypothesis challenging." },
+        { q: "What if spacetime is discrete?", k: "Approaches to quantum gravity (like loop quantum gravity) predict possible quantization or granularity of spacetime at Planck scales.", u: "Detectable consequences at accessible energies remain uncertain; how continuum emerges is an active question." },
+        { q: "What if constants of nature change?", k: "Physical constants (c, G, ħ, fine-structure constant) are measured to high precision and appear constant locally.", u: "Small temporal or spatial variations are constrained but not ruled out in all models; detecting variations would have huge implications." },
+        { q: "What if parallel universes exist?", k: "Many interpretations of quantum mechanics and cosmological models allow multiple 'universes' or branches.", u: "Observability is questionable; interactions between universes (if any) are hypothetical and nontrivial to detect." },
+        { q: "What if we had two moons?", k: "An extra moon would change tides, night illumination, and possibly climate over long periods.", u: "Long-term orbital stability depends on masses and resonances; ecological impacts would be complex." },
+        { q: "What if light traveled slightly slower in deep space?", k: "Locally measured speed of light is constant by relativity; global effective changes are modeled by refractive-like effects.", u: "Detectable cosmological variations would alter distance measures and require new physics." },
+        { q: "What if black holes evaporate completely?", k: "Hawking radiation predicts black holes lose mass slowly over astronomical timescales.", u: "How information is preserved or released (information paradox) is an area of intense theoretical research." },
+        { q: "What if the universe had a boundary?", k: "Cosmological models consider finite or infinite spatial extent; topology matters to global geometry.", u: "If an 'edge' existed, physics beyond it and observational signatures remain speculative." },
+        { q: "What if time began before the Big Bang?", k: "Standard cosmology treats time as beginning with our spacetime; some theories extend time through bouncing or pre-Big Bang phases.", u: "What 'before' means, and whether causality applies, are open philosophical and physical questions." },
+        { q: "What if quantum fluctuations shaped universes?", k: "Inflationary cosmology amplifies quantum fluctuations into macroscopic structure (galaxies, CMB anisotropies).", u: "The connection to a multiverse and selection effects is debated." },
+        { q: "What if gravity is emergent, not fundamental?", k: "Some proposals derive gravity as an emergent thermodynamic or entropic phenomenon from microscopic degrees of freedom.", u: "Deriving full general relativity and quantum gravity from emergent models remains an ongoing challenge." },
+        { q: "What if we could harness a star's energy directly?", k: "Concepts like Dyson spheres propose enclosing a star to collect energy; the physics of stellar engineering is speculative but rooted in thermodynamics.", u: "Engineering, materials, and sociotechnical feasibility are far beyond current capabilities." },
+        { q: "What if space isn't empty but filled with exotic fields?", k: "Quantum field theory predicts vacuum fluctuations and fields permeate space (e.g., Higgs field).", u: "Deeper structure of vacuum, possible new fields, and their macroscopic consequences are active research topics." }
       ];
 
-      // Elements
+      // elements
       const cardsEl = document.getElementById('cards');
       const randomBtn = document.getElementById('randomBtn');
       const surpriseBtn = document.getElementById('surpriseBtn');
@@ -405,31 +233,31 @@
 
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Build cards using DOM APIs (safer than string concatenation)
+      // Create a single card element (large, interactive, shows full details)
       function createCard(item, idx){
-        const li = document.createElement('div');
-        li.className = 'flip-card fade-in';
-        li.setAttribute('role','listitem');
-        li.setAttribute('tabindex','0');
-        li.style.animationDelay = (idx * 60) + 'ms';
+        const card = document.createElement('div');
+        card.className = 'flip-card fade-in';
+        card.setAttribute('role','listitem');
+        card.setAttribute('tabindex','0');
+        card.style.animationDelay = (idx * 45) + 'ms';
 
         const inner = document.createElement('div');
         inner.className = 'flip-inner';
-        li.appendChild(inner);
+        card.appendChild(inner);
 
-        // Front
+        // front face
         const front = document.createElement('div');
         front.className = 'card-face card-front';
-        const h3 = document.createElement('h3');
-        h3.textContent = item.q;
-        const p = document.createElement('p');
-        p.textContent = 'Tap or press Enter to flip';
+        const h3 = document.createElement('h3'); h3.textContent = item.q;
+        const pFront = document.createElement('p'); pFront.textContent = 'Tap, click, or press Enter to flip and read the details.';
         front.appendChild(h3);
-        front.appendChild(p);
+        front.appendChild(pFront);
 
-        // Back
+        // back face
         const back = document.createElement('div');
         back.className = 'card-face card-back';
+        const backInner = document.createElement('div');
+        backInner.className = 'back-inner';
 
         const knowH = document.createElement('h4'); knowH.textContent = 'What we know';
         const knowP = document.createElement('p'); knowP.textContent = item.k;
@@ -437,133 +265,131 @@
         const unkH = document.createElement('h4'); unkH.textContent = "What we don't know";
         const unkP = document.createElement('p'); unkP.textContent = item.u;
 
+        // optionally include extra details (for "every bit of information") - here we echo full Q, K and U clearly
+        const extra = document.createElement('div');
+        extra.style.marginTop = '6px';
+        extra.style.fontSize = '0.9rem';
+        extra.style.color = '#33506b';
+        extra.textContent = 'Full entry: ' + item.q + ' — ' + item.k + ' — ' + item.u;
+
         const badge = document.createElement('div');
         badge.className = 'badge';
         badge.textContent = 'Based on current scientific understanding';
 
-        back.appendChild(knowH);
-        back.appendChild(knowP);
-        back.appendChild(unkH);
-        back.appendChild(unkP);
-        back.appendChild(badge);
+        backInner.appendChild(knowH);
+        backInner.appendChild(knowP);
+        backInner.appendChild(unkH);
+        backInner.appendChild(unkP);
+        backInner.appendChild(extra);
+        backInner.appendChild(badge);
+
+        back.appendChild(backInner);
 
         inner.appendChild(front);
         inner.appendChild(back);
 
-        // Interaction: click or keyboard toggles flip
-        function toggleFlip(e){
-          li.classList.toggle('is-flipped');
+        // interactions
+        function toggleFlip(){
+          card.classList.toggle('is-flipped');
         }
-        li.addEventListener('click', function (e) {
-          // Ignore if clicking a link inside card (none here)
+        card.addEventListener('click', (e)=>{
+          // ignore right-clicks or if selection occurs
+          if (e.detail === 2) return; // let dblclick separately
           toggleFlip();
         });
-        li.addEventListener('keydown', function (e) {
+        card.addEventListener('keydown', (e)=>{
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             toggleFlip();
           }
+          if (e.key === 'Escape') {
+            card.classList.remove('is-flipped');
+          }
+        });
+        card.addEventListener('dblclick', ()=>{
+          card.classList.toggle('is-flipped');
         });
 
-        // Double-click to flip back quickly (nice micro-interaction)
-        li.addEventListener('dblclick', function(){ li.classList.toggle('is-flipped'); });
-
-        return li;
+        return card;
       }
 
-      // Render all cards
+      // render 20 large cards
       function renderCards(){
         cardsEl.innerHTML = '';
-        questions.forEach((q, i) => {
-          const card = createCard(q, i);
-          cardsEl.appendChild(card);
+        questions.forEach((q,i) => {
+          const c = createCard(q, i);
+          cardsEl.appendChild(c);
         });
       }
 
-      // Featured: show a chosen question in the featured panel
+      // featured panel
       function showFeatured(index){
         const q = questions[index % questions.length];
         fqBlurb.textContent = q.q;
         fqDetails.innerHTML = '<strong>What we know:</strong> ' + q.k + '<br><strong>What we don\'t know:</strong> ' + q.u;
       }
 
-      // Pick random index
-      function getRandomIndex(){
-        return Math.floor(Math.random() * questions.length);
-      }
+      function getRandomIndex(){ return Math.floor(Math.random() * questions.length); }
 
-      // Surprise topic: highlight a random card visually
       function surpriseTopic(){
-        const cardNodes = Array.from(cardsEl.querySelectorAll('.flip-card'));
-        if (!cardNodes.length) return;
-        const chosen = cardNodes[Math.floor(Math.random() * cardNodes.length)];
-        // Animate highlight
+        const nodes = Array.from(cardsEl.querySelectorAll('.flip-card'));
+        if (!nodes.length) return;
+        const chosen = nodes[Math.floor(Math.random() * nodes.length)];
         chosen.scrollIntoView({ behavior: 'smooth', block: 'center' });
         chosen.classList.add('is-flipped');
         chosen.style.transition = 'box-shadow .25s ease, transform .25s ease';
-        chosen.style.boxShadow = '0 18px 60px rgba(12,12,24,0.7)';
-        chosen.style.transform = 'translateY(-8px)';
+        chosen.style.boxShadow = '0 22px 80px rgba(12,12,24,0.8)';
+        chosen.style.transform = 'translateY(-12px)';
         setTimeout(()=> {
           chosen.classList.remove('is-flipped');
           chosen.style.boxShadow = '';
           chosen.style.transform = '';
-        }, 1600);
+        }, 1700);
       }
 
-      // Wire up buttons
-      randomBtn.addEventListener('click', function(){
-        showFeatured(getRandomIndex());
-      });
+      // setup
+      renderCards();
+      showFeatured(new Date().getMinutes() % questions.length);
+      setInterval(()=> { showFeatured(new Date().getMinutes() % questions.length); }, 60_000);
+
+      randomBtn.addEventListener('click', ()=> showFeatured( getRandomIndex() ));
       surpriseBtn.addEventListener('click', surpriseTopic);
 
-      // Auto-rotate featured every minute at a consistent offset
-      function setFeaturedByMinute(){
-        const idx = new Date().getMinutes() % questions.length;
-        showFeatured(idx);
-      }
-      setFeaturedByMinute();
-      setInterval(setFeaturedByMinute, 60_000);
-
-      // Initial render
-      renderCards();
-
-      // tiny parallax effect based on pointer to give "depth"
+      // gentle parallax to increase perceived size/depth (recompute only transform)
       (function parallax(){
-        let cards = document.querySelectorAll('.flip-card');
         function onMove(e){
           const x = (e.clientX / window.innerWidth) - 0.5;
           const y = (e.clientY / window.innerHeight) - 0.5;
           document.querySelectorAll('.flip-inner').forEach((el, i) => {
-            const depth = (i % 6) * 0.6 + 1;
-            el.style.transform = `translateX(${x * 6 / depth}px) translateY(${y * 6 / depth}px)`;
-            // if flipped, preserve flip rotation (we adjust back on flip toggle)
-            if (el.closest('.flip-card').classList.contains('is-flipped')) {
-              el.style.transform += ' rotateY(180deg)';
-            }
+            const depth = 1 + (i % 5) * 0.2;
+            // base translation small to not distort large cards too much
+            const tx = (x * 6) / depth;
+            const ty = (y * 6) / depth;
+            // preserve flipped state
+            const flipped = el.closest('.flip-card').classList.contains('is-flipped');
+            el.style.transform = (flipped ? 'rotateY(180deg) ' : '') + `translateX(${tx}px) translateY(${ty}px)`;
           });
         }
         window.addEventListener('mousemove', onMove, { passive:true });
-        window.addEventListener('touchmove', (ev)=> {
-          if (ev.touches && ev.touches[0]) onMove(ev.touches[0]);
-        }, { passive:true });
+        window.addEventListener('touchmove', (ev)=> { if (ev.touches && ev.touches[0]) onMove(ev.touches[0]); }, { passive:true });
       })();
 
-      // Simple starfield on canvas (animated twinkling stars)
+      // starfield: larger canvas with many stars and occasional shooting stars
       (function starfield(){
         const canvas = document.getElementById('starfield');
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         let width = canvas.width = innerWidth;
         let height = canvas.height = innerHeight;
-        const num = Math.floor((width * height) / 9000) + 120; // adapt to screen
+        const num = Math.max(220, Math.floor((width * height) / 7000)); // ensure abundant stars for big screens
 
         const stars = [];
         for (let i=0;i<num;i++){
           stars.push({
             x: Math.random()*width,
             y: Math.random()*height,
-            r: Math.random()*1.2 + 0.2,
-            twinkle: Math.random()*1.2 + 0.2,
+            r: Math.random()*1.6 + 0.3,
+            twinkle: Math.random()*1.6 + 0.3,
             phase: Math.random()*Math.PI*2
           });
         }
@@ -577,39 +403,38 @@
           ctx.fillStyle = g;
           ctx.fillRect(0,0,width,height);
 
-          // draw stars
+          // draw stars (brighter and more numerous)
           stars.forEach(s=>{
-            const a = 0.6 + 0.4 * Math.sin((Date.now()/800) * s.twinkle + s.phase);
+            const a = 0.55 + 0.45 * Math.sin((Date.now()/900) * s.twinkle + s.phase);
             ctx.beginPath();
             ctx.fillStyle = 'rgba(255,255,255,'+ a.toFixed(2) +')';
             ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
             ctx.fill();
           });
 
-          // little occasional shooting star
-          if (Math.random() < 0.008) shootingStar();
+          // occasional shooting star
+          if (Math.random() < 0.01) shootingStar();
           requestAnimationFrame(draw);
         }
 
-        // shooting star effect
         function shootingStar(){
           const sx = Math.random()*width*0.9 + width*0.05;
-          const sy = Math.random()*height*0.3 + 20;
-          const len = Math.random()*180 + 80;
-          const angle = -0.6 - Math.random()*0.6;
-          const vx = Math.cos(angle)*6;
-          const vy = Math.sin(angle)*6;
+          const sy = Math.random()*height*0.25 + 20;
+          const len = Math.random()*260 + 120;
+          const angle = -0.5 - Math.random()*0.7;
+          const vx = Math.cos(angle)*8;
+          const vy = Math.sin(angle)*8;
           let t=0;
           function step(){
             t++;
             ctx.beginPath();
-            const trail = Math.max(0, 1 - t/30);
-            ctx.strokeStyle = 'rgba(255,255,255,'+ (0.9*trail) +')';
+            const trail = Math.max(0, 1 - t/40);
+            ctx.strokeStyle = 'rgba(255,255,255,'+ (0.95*trail) +')';
             ctx.lineWidth = 2;
             ctx.moveTo(sx + vx * t, sy + vy * t);
             ctx.lineTo(sx + vx * t + Math.cos(angle)*len*0.12, sy + vy * t + Math.sin(angle)*len*0.12);
             ctx.stroke();
-            if (t < 30) requestAnimationFrame(step);
+            if (t < 40) requestAnimationFrame(step);
           }
           step();
         }
@@ -631,4 +456,4 @@
   </script>
 
 </body>
-        </html>
+  </html>
