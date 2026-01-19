@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>What If – Curious Minds</title>
+  <meta name="description" content="What If – Curious Minds: exploring deep 'what if' scientific questions responsibly for students, educators, and curious minds." />
+  <link rel="canonical" href="https://learneducationandstudy-prog.github.io/What-If/" />
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="What If – Curious Minds" />
+  <meta property="og:description" content="Exploring deep 'what if' scientific questions responsibly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://learneducationandstudy-prog.github.io/What-If/" />
+  <!-- small utility style; move to style.css if preferred -->
+  <style>
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+    /* Lightweight default for search input/button to keep layout similar to original */
+    .search-input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      box-sizing: border-box;
+    }
+    .btn {
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #1e88e5;
+      color: #fff;
+      font-size: 1rem;
+    }
+    /* Simple container spacing if style.css is missing */
+    .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+    footer { text-align:center; padding:20px; opacity:0.8; }
+  </style>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
   <!-- HEADER -->
-  <header>
+  <header class="container" role="banner">
     <h1><span class="highlight">What If</span> – Curious Minds</h1>
     <p>Exploring science through curiosity, logic, and imagination.</p>
   </header>
 
   <!-- MAIN CONTENT -->
-  <main class="container">
+  <main class="container" role="main">
 
     <!-- WHY STAY HERE -->
-    <section class="section-card">
-      <h2>Why should you stay here?</h2>
+    <section class="section-card" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why should you stay here?</h2>
       <p>
         This platform explores <strong>deep scientific “what if” questions</strong> —
         not with clickbait, but with real science.
@@ -34,27 +72,28 @@
     </section>
 
     <!-- SEARCH -->
-    <section class="section-card">
-      <h2>Search a What If</h2>
+    <section class="section-card" aria-labelledby="search-heading" role="search">
+      <h2 id="search-heading">Search a What If</h2>
+      <label for="searchInput" class="visually-hidden">Search topics</label>
       <input
-        type="text"
+        type="search"
         id="searchInput"
+        class="search-input"
         placeholder="Search topics like Sun, Black Holes, Time..."
-        style="width:100%; padding:12px; border-radius:8px; border:none;"
-        onkeyup="searchQuestions()"
-      />
+        autocomplete="off"
+        />
     </section>
 
     <!-- RANDOM QUESTION -->
-    <section class="section-card">
-      <h2>Feeling Curious?</h2>
-      <button onclick="showRandomQuestion()">Give me a random What If</button>
-      <p id="randomQuestion" style="margin-top:15px; font-size:1.1em;"></p>
+    <section class="section-card" aria-labelledby="random-heading">
+      <h2 id="random-heading">Feeling Curious?</h2>
+      <button id="randomBtn" class="btn" type="button">Give me a random What If</button>
+      <p id="randomQuestion" aria-live="polite" style="margin-top:15px; font-size:1.1em;"></p>
     </section>
 
     <!-- TOPICS -->
-    <section class="section-card">
-      <h2>Explore Topics</h2>
+    <section class="section-card" aria-labelledby="topics-heading">
+      <h2 id="topics-heading">Explore Topics</h2>
       <ul id="questionList">
         <li><a href="space.html">🌌 What if the Sun disappeared?</a></li>
         <li><a href="space.html">🌌 What if black holes were gateways?</a></li>
@@ -68,8 +107,8 @@
     </section>
 
     <!-- ABOUT -->
-    <section class="section-card">
-      <h2>About This Project</h2>
+    <section class="section-card" aria-labelledby="about-heading">
+      <h2 id="about-heading">About This Project</h2>
       <p>
         <strong>What If – Curious Minds</strong> is an independent educational initiative.
         Content is based on established scientific understanding,
@@ -78,46 +117,78 @@
       <p>
         📩 For collaborations or feedback:
         <br />
-        <strong>learn.educationandresearch@gmail.com</strong>
+        <a href="mailto:learn.educationandresearch@gmail.com">Contact the team</a>
       </p>
     </section>
 
   </main>
 
+  <noscript class="container" style="color: #b33;">
+    JavaScript is disabled in your browser. Search and random question features require JavaScript.
+  </noscript>
+
   <!-- FOOTER -->
   <footer style="text-align:center; padding:20px; opacity:0.7;">
-    <p>© 2026 What If – Curious Minds | Science through curiosity</p>
+    <p>© <span id="year">2026</span> What If – Curious Minds | Science through curiosity</p>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT: wrapped, cached lookups, defensive code -->
   <script>
-    const questions = [
-      "What if the Sun disappeared?",
-      "What if black holes were gateways?",
-      "What if time flowed differently?",
-      "What if gravity weakened?",
-      "What if humans stopped aging?",
-      "What if Earth had no seasons?",
-      "What if light had mass?",
-      "What if DNA could repair itself perfectly?"
-    ];
+    document.addEventListener('DOMContentLoaded', function () {
+      const questions = [
+        "What if the Sun disappeared?",
+        "What if black holes were gateways?",
+        "What if time flowed differently?",
+        "What if gravity weakened?",
+        "What if humans stopped aging?",
+        "What if Earth had no seasons?",
+        "What if light had mass?",
+        "What if DNA could repair itself perfectly?"
+      ];
 
-    function showRandomQuestion() {
-      const random =
-        questions[Math.floor(Math.random() * questions.length)];
-      document.getElementById("randomQuestion").innerText = random;
-    }
+      const randomBtn = document.getElementById('randomBtn');
+      const randomQuestionEl = document.getElementById('randomQuestion');
+      const searchInput = document.getElementById('searchInput');
+      const listItems = Array.from(document.querySelectorAll('#questionList li'));
 
-    function searchQuestions() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const items = document.querySelectorAll("#questionList li");
+      // Set current year
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      items.forEach(item => {
-        const text = item.innerText.toLowerCase();
-        item.style.display = text.includes(input) ? "" : "none";
+      function showRandomQuestion() {
+        if (questions.length === 0) return;
+        const random = questions[Math.floor(Math.random() * questions.length)];
+        // Use textContent to avoid parsing HTML
+        randomQuestionEl.textContent = random;
+      }
+
+      function searchQuestions() {
+        const input = (searchInput.value || '').trim().toLowerCase();
+        // If empty, show all
+        if (!input) {
+          listItems.forEach(item => { item.style.display = ''; });
+          return;
+        }
+        listItems.forEach(item => {
+          const text = (item.textContent || item.innerText || '').toLowerCase();
+          item.style.display = text.includes(input) ? '' : 'none';
+        });
+      }
+
+      // Event listeners
+      randomBtn.addEventListener('click', showRandomQuestion);
+      searchInput.addEventListener('input', searchQuestions);
+
+      // Optional: keyboard accessibility hint (Enter focuses first result)
+      searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          const firstVisible = listItems.find(li => li.style.display !== 'none');
+          const link = firstVisible && firstVisible.querySelector('a');
+          if (link) link.focus();
+        }
       });
-    }
+    });
   </script>
 
 </body>
-      </html>
+  </html>
