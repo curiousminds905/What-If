@@ -15,7 +15,7 @@ The website is designed to make science **interactive, engaging, and fun** for s
 
 ## Live Demo
 
-🌐 Check out the live website: [https://learneducationandstudy-prog.github.io/What-If/](https://learneducationandstudy-prog.github.io/What-If/)
+🌐 Check out the live website: [https://curiousminds905.github.io/What-If/](https://curiousminds905.github.io/What-If/)
 
 ---
 
