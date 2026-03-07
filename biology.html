@@ -1,130 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Biology | Curious Minds</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>What If Biology – Scientific Possibilities</title>
+
+<meta name="description" content="Explore fascinating biology scenarios such as humans photosynthesizing, evolution stopping, or humans never needing sleep.">
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #062b1e, #0b3d2e);
-  color: white;
+
+body{
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
 }
 
-/* HEADER */
-header {
-  background: #041f16;
-  padding: 20px;
-  text-align: center;
+header{
+text-align:center;
+padding:80px 20px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border: 1px solid white;
-  padding: 6px 16px;
-  border-radius: 20px;
+header h1{
+font-size:50px;
+margin-bottom:10px;
 }
 
-nav a:hover {
-  background: white;
-  color: black;
+header p{
+font-size:18px;
+opacity:0.85;
+max-width:700px;
+margin:auto;
 }
 
-/* CONTAINER */
-.container {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: auto;
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
 }
 
-/* SECTION TITLE */
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-/* TOPIC LIST */
-.topic-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:14px;
+transition:0.3s;
+text-align:center;
 }
 
-/* TOPIC CARD */
-.topic {
-  background: white;
-  color: black;
-  padding: 20px;
-  border-radius: 15px;
-  text-decoration: none;
-  transition: 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+.card:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,0.12);
 }
 
-.topic:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+.card h3{
+margin-bottom:10px;
 }
 
-.topic h3 {
-  margin: 0 0 8px 0;
+.card a{
+display:inline-block;
+margin-top:15px;
+padding:10px 18px;
+background:#00ffd5;
+color:black;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
 }
 
-.topic p {
-  font-size: 0.9rem;
-  color: #333;
+.card a:hover{
+background:#00cfae;
 }
 
-/* FOOTER */
-footer {
-  background: #041f16;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-  font-size: 0.8rem;
+footer{
+text-align:center;
+padding:30px;
+opacity:0.7;
 }
+
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>Biology</h1>
-  <nav>
-    <a href="index.html">Home</a>
-  </nav>
+
+<h1>🧬 What If Biology</h1>
+
+<p>
+Explore fascinating biological thought experiments about how life might change under extraordinary conditions.
+</p>
+
 </header>
+
+
 
 <div class="container">
 
-  <h2>Explore Biological What-If Questions</h2>
+<div class="grid">
 
-  <div class="topic-list">
+<div class="card">
+<h3>🌿 What If All Animals Could Photosynthesize?</h3>
+<p>Imagine animals producing their own food from sunlight.</p>
+<a href="biology/what-if-all-animals-could-photosynthesize.html">Explore</a>
+</div>
 
-    <a href="biology/what-if-humans-stopped-aging.html" class="topic">
-      <h3>What If Humans Stopped Aging?</h3>
-      <p>Explore the biological, social, and evolutionary consequences of stopping the aging process.</p>
-    </a>
+<div class="card">
+<h3>🦠 What If All Bacteria Disappeared?</h3>
+<p>Tiny organisms that secretly keep ecosystems alive.</p>
+<a href="biology/what-if-all-bacteria-disappeared.html">Explore</a>
+</div>
 
-    <!-- Add more topics below like this -->
+<div class="card">
+<h3>🧬 What If Evolution Suddenly Stopped?</h3>
+<p>Life frozen without genetic change or adaptation.</p>
+<a href="biology/what-if-evolution-suddenly-stopped.html">Explore</a>
+</div>
 
-    <a href="biology/what-if-all-animals-could-photosynthesize.html" class="topic">
-  <h3>What If All Animals Could Photosynthesize?</h3>
-  <p>Imagine a world where animals make their own food using sunlight like plants.</p>
-  </a>
-    -->
+<div class="card">
+<h3>🌊 What If Humans Could Breathe Underwater?</h3>
+<p>The oceans could become a new world for humanity.</p>
+<a href="biology/what-if-humans-could-breathe-underwater.html">Explore</a>
+</div>
 
-  </div>
+<div class="card">
+<h3>🦎 What If Humans Could Regenerate Limbs?</h3>
+<p>Inspired by salamanders that regrow body parts.</p>
+<a href="biology/what-if-humans-could-regenerate-limbs.html">Explore</a>
+</div>
+
+<div class="card">
+<h3>🧠 What If Humans Had Perfect Memory?</h3>
+<p>Remember every moment of your life clearly.</p>
+<a href="biology/what-if-humans-had-perfect-memory.html">Explore</a>
+</div>
+
+<div class="card">
+<h3>😴 What If Humans Never Needed Sleep?</h3>
+<p>A world where humans stay awake 24 hours a day.</p>
+<a href="biology/what-if-humans-never-needed-sleep.html">Explore</a>
+</div>
+
+<div class="card">
+<h3>⏳ What If Humans Stopped Aging?</h3>
+<p>Imagine humans living without growing old.</p>
+<a href="biology/what-if-humans-stopped-aging.html">Explore</a>
+</div>
 
 </div>
 
+</div>
+
+
+
 <footer>
-  Based on current biological understanding 🧬
+
+<p>Biology "What If" Series • Science + Imagination</p>
+
 </footer>
 
 </body>
+
 </html>
